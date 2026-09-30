@@ -1,2 +1,2 @@
-# loglens-community
-Turn your computer's security logs into plain English
+# LogLens Community
+Loglens Community is a free, open-source desktop application that turns Windows security logs into plain English explations for non-specialists. A user exports the security logs that Windows already keeps, drops them into LogLens, and gets a timeline, a handful of high value alerts, a process tree, a short explanation of what happened and what to do next. Everything runs locally. Nothing is uploaded.
