@@ -1,0 +1,2 @@
+timestamp_utc,computer,channel,event_id,record_id,user,source_ip
+2026-10-02T05:33:32+00:00,DESKTOP-SHUTGIN,Security,4625,328,testuser,192.168.1.10

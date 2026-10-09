@@ -216,3 +216,6 @@ __marimo__/
 
 # Streamlit
 .streamlit/secrets.toml
+
+benchmarks/sample_100k.csv
+/benchmarks/sample_100k.csv
