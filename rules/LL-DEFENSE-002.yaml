@@ -1,0 +1,32 @@
+
+id: LL-DEFENSE-002
+title: Microsoft Defender real-time protection disabled
+channel: Microsoft-Windows-Windows Defender/Operational
+event_ids: [5001]
+
+logic:
+  match: {}
+
+severity: high
+attack: [T1562.001]
+
+consumer_text: >
+  Microsoft Defender real-time protection was disabled
+  on this computer. This may reduce protection against
+  malware and other security threats.
+
+false_positive_note: >
+  Real-time protection may be disabled during authorized
+  maintenance, troubleshooting, or security testing.
+
+next_steps:
+  - Confirm whether the protection change was authorized.
+  - Check whether real-time protection has been restored.
+  - Investigate unexpected administrative or process activity.
+  - Review other Defender alerts and security events.
+
+analyst_notes: >
+  Review Microsoft-Windows-Windows Defender/Operational
+  Event ID 5001. Correlate with configuration changes,
+  process creation, PowerShell execution, and other
+  indicators of defense impairment.

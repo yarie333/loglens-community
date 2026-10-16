@@ -1,0 +1,31 @@
+
+id: LL-ACCT-001
+title: New Windows user account created
+channel: Security
+event_ids: [4720]
+
+logic:
+  match: {}
+
+severity: medium
+attack: [T1136.001]
+
+consumer_text: >
+  A new user account was created on this computer.
+  If you did not expect this change, someone may have
+  created an account without your permission.
+
+false_positive_note: >
+  New accounts are commonly created when setting up
+  a computer, adding family members, or onboarding employees.
+
+next_steps:
+  - Check whether you recognize the new account.
+  - Ask the computer administrator whether the account was authorized.
+  - Disable the account if it is unauthorized and investigate the activity.
+
+analyst_notes: >
+  Review Security Event ID 4720. Identify the account creator
+  using SubjectUserName and the newly created account using
+  TargetUserName. Correlate with group membership changes,
+  particularly Event IDs 4728 and 4732.

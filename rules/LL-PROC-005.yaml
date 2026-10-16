@@ -1,0 +1,34 @@
+
+id: LL-PROC-005
+title: Microsoft Word launches PowerShell
+channel: Microsoft-Windows-Sysmon/Operational
+event_ids: [1]
+
+logic:
+  match:
+    parent_name: winword.exe
+    process_name: powershell.exe
+
+severity: high
+attack: [T1204.002, T1059.001]
+
+consumer_text: >
+  Microsoft Word launched PowerShell on this computer.
+  This is an unusual process relationship that may indicate
+  a document attempting to execute commands.
+
+false_positive_note: >
+  Some legitimate document automation workflows or
+  administrative tools may launch PowerShell from Word.
+
+next_steps:
+  - Identify the document that was open when PowerShell started.
+  - Review the PowerShell command line.
+  - Confirm whether the activity was expected.
+  - Investigate related processes and network connections.
+
+analyst_notes: >
+  Review Sysmon Event ID 1. Examine Image, ParentImage,
+  CommandLine, ParentCommandLine, ProcessGuid, and
+  ParentProcessGuid. Correlate the child process with its
+  parent using process GUIDs when available.

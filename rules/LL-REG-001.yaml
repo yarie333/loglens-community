@@ -1,0 +1,33 @@
+
+id: LL-REG-001
+title: Registry Run key modified
+channel: Microsoft-Windows-Sysmon/Operational
+event_ids: [13]
+
+logic:
+  contains:
+    registry_key: "\\CurrentVersion\\Run\\"
+
+severity: medium
+attack: [T1547.001]
+
+consumer_text: >
+  A Windows Registry setting used to automatically start
+  programs was modified. This could allow a program to
+  run whenever a user signs in.
+
+false_positive_note: >
+  Legitimate applications frequently modify Run keys
+  during installation, updates, or configuration changes.
+
+next_steps:
+  - Identify the modified Registry value.
+  - Check which executable or script was configured.
+  - Verify whether the change was authorized.
+  - Investigate unexpected startup programs.
+
+analyst_notes: >
+  Review Sysmon Event ID 13 and examine TargetObject,
+  Details, Image, and ProcessGuid. Identify changes to
+  Run and RunOnce keys and correlate with process
+  creation events.

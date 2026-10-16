@@ -1,0 +1,71 @@
+{
+  "input_file": "C:\\Users\\progr\\Projects\\loglens-community\\tests\\fixtures\\attack-samples\\LM_Remote_Service02_7045.evtx",
+  "total_events": 3,
+  "rules_loaded": 16,
+  "total_findings": 3,
+  "findings": [
+    {
+      "rule_id": "LL-PERSIST-002",
+      "title": "New Windows service installed",
+      "severity": "medium",
+      "computer": "WIN-77LTAPHIQ1R.example.corp",
+      "timestamp": "2019-03-03T09:20:28.621489+00:00",
+      "event_id": 7045,
+      "target_user": null,
+      "attack": [
+        "T1543.003"
+      ],
+      "consumer_text": "A new Windows service was installed on this computer. Services can run automatically and may be used to maintain access to a system.\n",
+      "false_positive_note": "Legitimate software installations, updates, and administrative tools commonly create new Windows services.\n",
+      "next_steps": [
+        "Identify the newly installed service.",
+        "Check the executable path associated with the service.",
+        "Verify that the installation was authorized.",
+        "Investigate unfamiliar or suspicious services."
+      ],
+      "analyst_notes": "Review System Event ID 7045. Examine the service name, executable path, service type, and account used to run it. Correlate with process creation and other persistence events.\n"
+    },
+    {
+      "rule_id": "LL-PERSIST-002",
+      "title": "New Windows service installed",
+      "severity": "medium",
+      "computer": "WIN-77LTAPHIQ1R.example.corp",
+      "timestamp": "2019-03-03T09:24:24.699653+00:00",
+      "event_id": 7045,
+      "target_user": null,
+      "attack": [
+        "T1543.003"
+      ],
+      "consumer_text": "A new Windows service was installed on this computer. Services can run automatically and may be used to maintain access to a system.\n",
+      "false_positive_note": "Legitimate software installations, updates, and administrative tools commonly create new Windows services.\n",
+      "next_steps": [
+        "Identify the newly installed service.",
+        "Check the executable path associated with the service.",
+        "Verify that the installation was authorized.",
+        "Investigate unfamiliar or suspicious services."
+      ],
+      "analyst_notes": "Review System Event ID 7045. Examine the service name, executable path, service type, and account used to run it. Correlate with process creation and other persistence events.\n"
+    },
+    {
+      "rule_id": "LL-PERSIST-002",
+      "title": "New Windows service installed",
+      "severity": "medium",
+      "computer": "WIN-77LTAPHIQ1R.example.corp",
+      "timestamp": "2019-03-19T00:41:29.008933+00:00",
+      "event_id": 7045,
+      "target_user": null,
+      "attack": [
+        "T1543.003"
+      ],
+      "consumer_text": "A new Windows service was installed on this computer. Services can run automatically and may be used to maintain access to a system.\n",
+      "false_positive_note": "Legitimate software installations, updates, and administrative tools commonly create new Windows services.\n",
+      "next_steps": [
+        "Identify the newly installed service.",
+        "Check the executable path associated with the service.",
+        "Verify that the installation was authorized.",
+        "Investigate unfamiliar or suspicious services."
+      ],
+      "analyst_notes": "Review System Event ID 7045. Examine the service name, executable path, service type, and account used to run it. Correlate with process creation and other persistence events.\n"
+    }
+  ]
+}

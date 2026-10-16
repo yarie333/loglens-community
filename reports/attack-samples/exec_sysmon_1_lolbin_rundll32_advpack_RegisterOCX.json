@@ -1,0 +1,7 @@
+{
+  "input_file": "C:\\Users\\progr\\Projects\\loglens-community\\tests\\fixtures\\attack-samples\\exec_sysmon_1_lolbin_rundll32_advpack_RegisterOCX.evtx",
+  "total_events": 2,
+  "rules_loaded": 16,
+  "total_findings": 0,
+  "findings": []
+}

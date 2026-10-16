@@ -1,0 +1,577 @@
+{
+  "input_file": "tests\\fixtures\\lab\\Sysmon.evtx",
+  "total_events": 4575,
+  "rules_loaded": 16,
+  "total_findings": 27,
+  "findings": [
+    {
+      "rule_id": "LL-DISC-001",
+      "title": "Windows identity discovery command executed",
+      "severity": "low",
+      "computer": "DESKTOP-SHUTGIN",
+      "timestamp": "2026-10-02T03:37:25.831585+00:00",
+      "event_id": 1,
+      "target_user": null,
+      "attack": [
+        "T1033"
+      ],
+      "consumer_text": "A command was executed to identify the current Windows user. This may be normal activity or part of an attempt to gather information about the computer.\n",
+      "false_positive_note": "Administrators, troubleshooting scripts, and legitimate software may use whoami.exe during normal operations.\n",
+      "next_steps": [
+        "Identify the user who executed the command.",
+        "Review the parent process and command line.",
+        "Check for related unusual discovery commands.",
+        "Determine whether the activity was expected."
+      ],
+      "analyst_notes": "Review Sysmon Event ID 1. Examine Image, CommandLine, ParentImage, User, and ProcessGuid. Correlate with other discovery commands and suspicious process activity.\n"
+    },
+    {
+      "rule_id": "LL-DISC-001",
+      "title": "Windows identity discovery command executed",
+      "severity": "low",
+      "computer": "DESKTOP-SHUTGIN",
+      "timestamp": "2026-10-02T03:47:50.758994+00:00",
+      "event_id": 1,
+      "target_user": null,
+      "attack": [
+        "T1033"
+      ],
+      "consumer_text": "A command was executed to identify the current Windows user. This may be normal activity or part of an attempt to gather information about the computer.\n",
+      "false_positive_note": "Administrators, troubleshooting scripts, and legitimate software may use whoami.exe during normal operations.\n",
+      "next_steps": [
+        "Identify the user who executed the command.",
+        "Review the parent process and command line.",
+        "Check for related unusual discovery commands.",
+        "Determine whether the activity was expected."
+      ],
+      "analyst_notes": "Review Sysmon Event ID 1. Examine Image, CommandLine, ParentImage, User, and ProcessGuid. Correlate with other discovery commands and suspicious process activity.\n"
+    },
+    {
+      "rule_id": "LL-DISC-001",
+      "title": "Windows identity discovery command executed",
+      "severity": "low",
+      "computer": "DESKTOP-SHUTGIN",
+      "timestamp": "2026-10-02T03:50:54.327757+00:00",
+      "event_id": 1,
+      "target_user": null,
+      "attack": [
+        "T1033"
+      ],
+      "consumer_text": "A command was executed to identify the current Windows user. This may be normal activity or part of an attempt to gather information about the computer.\n",
+      "false_positive_note": "Administrators, troubleshooting scripts, and legitimate software may use whoami.exe during normal operations.\n",
+      "next_steps": [
+        "Identify the user who executed the command.",
+        "Review the parent process and command line.",
+        "Check for related unusual discovery commands.",
+        "Determine whether the activity was expected."
+      ],
+      "analyst_notes": "Review Sysmon Event ID 1. Examine Image, CommandLine, ParentImage, User, and ProcessGuid. Correlate with other discovery commands and suspicious process activity.\n"
+    },
+    {
+      "rule_id": "LL-DISC-001",
+      "title": "Windows identity discovery command executed",
+      "severity": "low",
+      "computer": "DESKTOP-SHUTGIN",
+      "timestamp": "2026-10-02T03:54:39.065308+00:00",
+      "event_id": 1,
+      "target_user": null,
+      "attack": [
+        "T1033"
+      ],
+      "consumer_text": "A command was executed to identify the current Windows user. This may be normal activity or part of an attempt to gather information about the computer.\n",
+      "false_positive_note": "Administrators, troubleshooting scripts, and legitimate software may use whoami.exe during normal operations.\n",
+      "next_steps": [
+        "Identify the user who executed the command.",
+        "Review the parent process and command line.",
+        "Check for related unusual discovery commands.",
+        "Determine whether the activity was expected."
+      ],
+      "analyst_notes": "Review Sysmon Event ID 1. Examine Image, CommandLine, ParentImage, User, and ProcessGuid. Correlate with other discovery commands and suspicious process activity.\n"
+    },
+    {
+      "rule_id": "LL-DISC-001",
+      "title": "Windows identity discovery command executed",
+      "severity": "low",
+      "computer": "DESKTOP-SHUTGIN",
+      "timestamp": "2026-10-02T03:59:01.215865+00:00",
+      "event_id": 1,
+      "target_user": null,
+      "attack": [
+        "T1033"
+      ],
+      "consumer_text": "A command was executed to identify the current Windows user. This may be normal activity or part of an attempt to gather information about the computer.\n",
+      "false_positive_note": "Administrators, troubleshooting scripts, and legitimate software may use whoami.exe during normal operations.\n",
+      "next_steps": [
+        "Identify the user who executed the command.",
+        "Review the parent process and command line.",
+        "Check for related unusual discovery commands.",
+        "Determine whether the activity was expected."
+      ],
+      "analyst_notes": "Review Sysmon Event ID 1. Examine Image, CommandLine, ParentImage, User, and ProcessGuid. Correlate with other discovery commands and suspicious process activity.\n"
+    },
+    {
+      "rule_id": "LL-DISC-001",
+      "title": "Windows identity discovery command executed",
+      "severity": "low",
+      "computer": "DESKTOP-SHUTGIN",
+      "timestamp": "2026-10-02T04:01:09.245454+00:00",
+      "event_id": 1,
+      "target_user": null,
+      "attack": [
+        "T1033"
+      ],
+      "consumer_text": "A command was executed to identify the current Windows user. This may be normal activity or part of an attempt to gather information about the computer.\n",
+      "false_positive_note": "Administrators, troubleshooting scripts, and legitimate software may use whoami.exe during normal operations.\n",
+      "next_steps": [
+        "Identify the user who executed the command.",
+        "Review the parent process and command line.",
+        "Check for related unusual discovery commands.",
+        "Determine whether the activity was expected."
+      ],
+      "analyst_notes": "Review Sysmon Event ID 1. Examine Image, CommandLine, ParentImage, User, and ProcessGuid. Correlate with other discovery commands and suspicious process activity.\n"
+    },
+    {
+      "rule_id": "LL-DISC-001",
+      "title": "Windows identity discovery command executed",
+      "severity": "low",
+      "computer": "DESKTOP-SHUTGIN",
+      "timestamp": "2026-10-02T04:13:34.244743+00:00",
+      "event_id": 1,
+      "target_user": null,
+      "attack": [
+        "T1033"
+      ],
+      "consumer_text": "A command was executed to identify the current Windows user. This may be normal activity or part of an attempt to gather information about the computer.\n",
+      "false_positive_note": "Administrators, troubleshooting scripts, and legitimate software may use whoami.exe during normal operations.\n",
+      "next_steps": [
+        "Identify the user who executed the command.",
+        "Review the parent process and command line.",
+        "Check for related unusual discovery commands.",
+        "Determine whether the activity was expected."
+      ],
+      "analyst_notes": "Review Sysmon Event ID 1. Examine Image, CommandLine, ParentImage, User, and ProcessGuid. Correlate with other discovery commands and suspicious process activity.\n"
+    },
+    {
+      "rule_id": "LL-DISC-001",
+      "title": "Windows identity discovery command executed",
+      "severity": "low",
+      "computer": "DESKTOP-SHUTGIN",
+      "timestamp": "2026-10-02T04:16:31.303506+00:00",
+      "event_id": 1,
+      "target_user": null,
+      "attack": [
+        "T1033"
+      ],
+      "consumer_text": "A command was executed to identify the current Windows user. This may be normal activity or part of an attempt to gather information about the computer.\n",
+      "false_positive_note": "Administrators, troubleshooting scripts, and legitimate software may use whoami.exe during normal operations.\n",
+      "next_steps": [
+        "Identify the user who executed the command.",
+        "Review the parent process and command line.",
+        "Check for related unusual discovery commands.",
+        "Determine whether the activity was expected."
+      ],
+      "analyst_notes": "Review Sysmon Event ID 1. Examine Image, CommandLine, ParentImage, User, and ProcessGuid. Correlate with other discovery commands and suspicious process activity.\n"
+    },
+    {
+      "rule_id": "LL-DISC-001",
+      "title": "Windows identity discovery command executed",
+      "severity": "low",
+      "computer": "DESKTOP-SHUTGIN",
+      "timestamp": "2026-10-02T04:22:42.640520+00:00",
+      "event_id": 1,
+      "target_user": null,
+      "attack": [
+        "T1033"
+      ],
+      "consumer_text": "A command was executed to identify the current Windows user. This may be normal activity or part of an attempt to gather information about the computer.\n",
+      "false_positive_note": "Administrators, troubleshooting scripts, and legitimate software may use whoami.exe during normal operations.\n",
+      "next_steps": [
+        "Identify the user who executed the command.",
+        "Review the parent process and command line.",
+        "Check for related unusual discovery commands.",
+        "Determine whether the activity was expected."
+      ],
+      "analyst_notes": "Review Sysmon Event ID 1. Examine Image, CommandLine, ParentImage, User, and ProcessGuid. Correlate with other discovery commands and suspicious process activity.\n"
+    },
+    {
+      "rule_id": "LL-DISC-001",
+      "title": "Windows identity discovery command executed",
+      "severity": "low",
+      "computer": "DESKTOP-SHUTGIN",
+      "timestamp": "2026-10-02T04:25:49.269185+00:00",
+      "event_id": 1,
+      "target_user": null,
+      "attack": [
+        "T1033"
+      ],
+      "consumer_text": "A command was executed to identify the current Windows user. This may be normal activity or part of an attempt to gather information about the computer.\n",
+      "false_positive_note": "Administrators, troubleshooting scripts, and legitimate software may use whoami.exe during normal operations.\n",
+      "next_steps": [
+        "Identify the user who executed the command.",
+        "Review the parent process and command line.",
+        "Check for related unusual discovery commands.",
+        "Determine whether the activity was expected."
+      ],
+      "analyst_notes": "Review Sysmon Event ID 1. Examine Image, CommandLine, ParentImage, User, and ProcessGuid. Correlate with other discovery commands and suspicious process activity.\n"
+    },
+    {
+      "rule_id": "LL-DISC-001",
+      "title": "Windows identity discovery command executed",
+      "severity": "low",
+      "computer": "DESKTOP-SHUTGIN",
+      "timestamp": "2026-10-02T04:39:31.588006+00:00",
+      "event_id": 1,
+      "target_user": null,
+      "attack": [
+        "T1033"
+      ],
+      "consumer_text": "A command was executed to identify the current Windows user. This may be normal activity or part of an attempt to gather information about the computer.\n",
+      "false_positive_note": "Administrators, troubleshooting scripts, and legitimate software may use whoami.exe during normal operations.\n",
+      "next_steps": [
+        "Identify the user who executed the command.",
+        "Review the parent process and command line.",
+        "Check for related unusual discovery commands.",
+        "Determine whether the activity was expected."
+      ],
+      "analyst_notes": "Review Sysmon Event ID 1. Examine Image, CommandLine, ParentImage, User, and ProcessGuid. Correlate with other discovery commands and suspicious process activity.\n"
+    },
+    {
+      "rule_id": "LL-DISC-001",
+      "title": "Windows identity discovery command executed",
+      "severity": "low",
+      "computer": "DESKTOP-SHUTGIN",
+      "timestamp": "2026-10-02T04:41:58.821729+00:00",
+      "event_id": 1,
+      "target_user": null,
+      "attack": [
+        "T1033"
+      ],
+      "consumer_text": "A command was executed to identify the current Windows user. This may be normal activity or part of an attempt to gather information about the computer.\n",
+      "false_positive_note": "Administrators, troubleshooting scripts, and legitimate software may use whoami.exe during normal operations.\n",
+      "next_steps": [
+        "Identify the user who executed the command.",
+        "Review the parent process and command line.",
+        "Check for related unusual discovery commands.",
+        "Determine whether the activity was expected."
+      ],
+      "analyst_notes": "Review Sysmon Event ID 1. Examine Image, CommandLine, ParentImage, User, and ProcessGuid. Correlate with other discovery commands and suspicious process activity.\n"
+    },
+    {
+      "rule_id": "LL-DISC-001",
+      "title": "Windows identity discovery command executed",
+      "severity": "low",
+      "computer": "DESKTOP-SHUTGIN",
+      "timestamp": "2026-10-02T04:44:47.206864+00:00",
+      "event_id": 1,
+      "target_user": null,
+      "attack": [
+        "T1033"
+      ],
+      "consumer_text": "A command was executed to identify the current Windows user. This may be normal activity or part of an attempt to gather information about the computer.\n",
+      "false_positive_note": "Administrators, troubleshooting scripts, and legitimate software may use whoami.exe during normal operations.\n",
+      "next_steps": [
+        "Identify the user who executed the command.",
+        "Review the parent process and command line.",
+        "Check for related unusual discovery commands.",
+        "Determine whether the activity was expected."
+      ],
+      "analyst_notes": "Review Sysmon Event ID 1. Examine Image, CommandLine, ParentImage, User, and ProcessGuid. Correlate with other discovery commands and suspicious process activity.\n"
+    },
+    {
+      "rule_id": "LL-DISC-001",
+      "title": "Windows identity discovery command executed",
+      "severity": "low",
+      "computer": "DESKTOP-SHUTGIN",
+      "timestamp": "2026-10-02T04:45:34.634427+00:00",
+      "event_id": 1,
+      "target_user": null,
+      "attack": [
+        "T1033"
+      ],
+      "consumer_text": "A command was executed to identify the current Windows user. This may be normal activity or part of an attempt to gather information about the computer.\n",
+      "false_positive_note": "Administrators, troubleshooting scripts, and legitimate software may use whoami.exe during normal operations.\n",
+      "next_steps": [
+        "Identify the user who executed the command.",
+        "Review the parent process and command line.",
+        "Check for related unusual discovery commands.",
+        "Determine whether the activity was expected."
+      ],
+      "analyst_notes": "Review Sysmon Event ID 1. Examine Image, CommandLine, ParentImage, User, and ProcessGuid. Correlate with other discovery commands and suspicious process activity.\n"
+    },
+    {
+      "rule_id": "LL-DISC-001",
+      "title": "Windows identity discovery command executed",
+      "severity": "low",
+      "computer": "DESKTOP-SHUTGIN",
+      "timestamp": "2026-10-02T04:50:25.378643+00:00",
+      "event_id": 1,
+      "target_user": null,
+      "attack": [
+        "T1033"
+      ],
+      "consumer_text": "A command was executed to identify the current Windows user. This may be normal activity or part of an attempt to gather information about the computer.\n",
+      "false_positive_note": "Administrators, troubleshooting scripts, and legitimate software may use whoami.exe during normal operations.\n",
+      "next_steps": [
+        "Identify the user who executed the command.",
+        "Review the parent process and command line.",
+        "Check for related unusual discovery commands.",
+        "Determine whether the activity was expected."
+      ],
+      "analyst_notes": "Review Sysmon Event ID 1. Examine Image, CommandLine, ParentImage, User, and ProcessGuid. Correlate with other discovery commands and suspicious process activity.\n"
+    },
+    {
+      "rule_id": "LL-DISC-001",
+      "title": "Windows identity discovery command executed",
+      "severity": "low",
+      "computer": "DESKTOP-SHUTGIN",
+      "timestamp": "2026-10-02T04:51:19.082867+00:00",
+      "event_id": 1,
+      "target_user": null,
+      "attack": [
+        "T1033"
+      ],
+      "consumer_text": "A command was executed to identify the current Windows user. This may be normal activity or part of an attempt to gather information about the computer.\n",
+      "false_positive_note": "Administrators, troubleshooting scripts, and legitimate software may use whoami.exe during normal operations.\n",
+      "next_steps": [
+        "Identify the user who executed the command.",
+        "Review the parent process and command line.",
+        "Check for related unusual discovery commands.",
+        "Determine whether the activity was expected."
+      ],
+      "analyst_notes": "Review Sysmon Event ID 1. Examine Image, CommandLine, ParentImage, User, and ProcessGuid. Correlate with other discovery commands and suspicious process activity.\n"
+    },
+    {
+      "rule_id": "LL-PROC-001",
+      "title": "PowerShell launched with encoded command",
+      "severity": "high",
+      "computer": "DESKTOP-SHUTGIN",
+      "timestamp": "2026-10-02T03:07:35.395631+00:00",
+      "event_id": 1,
+      "target_user": null,
+      "attack": [
+        "T1059.001",
+        "T1027"
+      ],
+      "consumer_text": "PowerShell was launched on this computer. The command may require investigation because encoded commands can hide what a script is doing.\n",
+      "false_positive_note": "Administrators and legitimate automation tools may use encoded PowerShell commands.\n",
+      "next_steps": [
+        "Review the PowerShell command line.",
+        "Decode any encoded command safely for analysis.",
+        "Identify the parent process that launched PowerShell.",
+        "Determine whether the execution was authorized."
+      ],
+      "analyst_notes": "Review Sysmon Event ID 1. Examine Image, CommandLine, ParentImage, ParentCommandLine, and ProcessGuid. Identify encoded command arguments and correlate related parent-child process activity.\n"
+    },
+    {
+      "rule_id": "LL-PROC-001",
+      "title": "PowerShell launched with encoded command",
+      "severity": "high",
+      "computer": "DESKTOP-SHUTGIN",
+      "timestamp": "2026-10-02T03:54:48.440608+00:00",
+      "event_id": 1,
+      "target_user": null,
+      "attack": [
+        "T1059.001",
+        "T1027"
+      ],
+      "consumer_text": "PowerShell was launched on this computer. The command may require investigation because encoded commands can hide what a script is doing.\n",
+      "false_positive_note": "Administrators and legitimate automation tools may use encoded PowerShell commands.\n",
+      "next_steps": [
+        "Review the PowerShell command line.",
+        "Decode any encoded command safely for analysis.",
+        "Identify the parent process that launched PowerShell.",
+        "Determine whether the execution was authorized."
+      ],
+      "analyst_notes": "Review Sysmon Event ID 1. Examine Image, CommandLine, ParentImage, ParentCommandLine, and ProcessGuid. Identify encoded command arguments and correlate related parent-child process activity.\n"
+    },
+    {
+      "rule_id": "LL-REG-001",
+      "title": "Registry Run key modified",
+      "severity": "medium",
+      "computer": "DESKTOP-SHUTGIN",
+      "timestamp": "2026-09-30T06:37:42.786210+00:00",
+      "event_id": 13,
+      "target_user": null,
+      "attack": [
+        "T1547.001"
+      ],
+      "consumer_text": "A Windows Registry setting used to automatically start programs was modified. This could allow a program to run whenever a user signs in.\n",
+      "false_positive_note": "Legitimate applications frequently modify Run keys during installation, updates, or configuration changes.\n",
+      "next_steps": [
+        "Identify the modified Registry value.",
+        "Check which executable or script was configured.",
+        "Verify whether the change was authorized.",
+        "Investigate unexpected startup programs."
+      ],
+      "analyst_notes": "Review Sysmon Event ID 13 and examine TargetObject, Details, Image, and ProcessGuid. Identify changes to Run and RunOnce keys and correlate with process creation events.\n"
+    },
+    {
+      "rule_id": "LL-REG-001",
+      "title": "Registry Run key modified",
+      "severity": "medium",
+      "computer": "DESKTOP-SHUTGIN",
+      "timestamp": "2026-09-30T09:14:25.703739+00:00",
+      "event_id": 13,
+      "target_user": null,
+      "attack": [
+        "T1547.001"
+      ],
+      "consumer_text": "A Windows Registry setting used to automatically start programs was modified. This could allow a program to run whenever a user signs in.\n",
+      "false_positive_note": "Legitimate applications frequently modify Run keys during installation, updates, or configuration changes.\n",
+      "next_steps": [
+        "Identify the modified Registry value.",
+        "Check which executable or script was configured.",
+        "Verify whether the change was authorized.",
+        "Investigate unexpected startup programs."
+      ],
+      "analyst_notes": "Review Sysmon Event ID 13 and examine TargetObject, Details, Image, and ProcessGuid. Identify changes to Run and RunOnce keys and correlate with process creation events.\n"
+    },
+    {
+      "rule_id": "LL-REG-001",
+      "title": "Registry Run key modified",
+      "severity": "medium",
+      "computer": "DESKTOP-SHUTGIN",
+      "timestamp": "2026-09-30T15:07:15.061036+00:00",
+      "event_id": 13,
+      "target_user": null,
+      "attack": [
+        "T1547.001"
+      ],
+      "consumer_text": "A Windows Registry setting used to automatically start programs was modified. This could allow a program to run whenever a user signs in.\n",
+      "false_positive_note": "Legitimate applications frequently modify Run keys during installation, updates, or configuration changes.\n",
+      "next_steps": [
+        "Identify the modified Registry value.",
+        "Check which executable or script was configured.",
+        "Verify whether the change was authorized.",
+        "Investigate unexpected startup programs."
+      ],
+      "analyst_notes": "Review Sysmon Event ID 13 and examine TargetObject, Details, Image, and ProcessGuid. Identify changes to Run and RunOnce keys and correlate with process creation events.\n"
+    },
+    {
+      "rule_id": "LL-REG-001",
+      "title": "Registry Run key modified",
+      "severity": "medium",
+      "computer": "DESKTOP-SHUTGIN",
+      "timestamp": "2026-09-30T19:40:33.419962+00:00",
+      "event_id": 13,
+      "target_user": null,
+      "attack": [
+        "T1547.001"
+      ],
+      "consumer_text": "A Windows Registry setting used to automatically start programs was modified. This could allow a program to run whenever a user signs in.\n",
+      "false_positive_note": "Legitimate applications frequently modify Run keys during installation, updates, or configuration changes.\n",
+      "next_steps": [
+        "Identify the modified Registry value.",
+        "Check which executable or script was configured.",
+        "Verify whether the change was authorized.",
+        "Investigate unexpected startup programs."
+      ],
+      "analyst_notes": "Review Sysmon Event ID 13 and examine TargetObject, Details, Image, and ProcessGuid. Identify changes to Run and RunOnce keys and correlate with process creation events.\n"
+    },
+    {
+      "rule_id": "LL-REG-001",
+      "title": "Registry Run key modified",
+      "severity": "medium",
+      "computer": "DESKTOP-SHUTGIN",
+      "timestamp": "2026-10-01T21:50:29.001649+00:00",
+      "event_id": 13,
+      "target_user": null,
+      "attack": [
+        "T1547.001"
+      ],
+      "consumer_text": "A Windows Registry setting used to automatically start programs was modified. This could allow a program to run whenever a user signs in.\n",
+      "false_positive_note": "Legitimate applications frequently modify Run keys during installation, updates, or configuration changes.\n",
+      "next_steps": [
+        "Identify the modified Registry value.",
+        "Check which executable or script was configured.",
+        "Verify whether the change was authorized.",
+        "Investigate unexpected startup programs."
+      ],
+      "analyst_notes": "Review Sysmon Event ID 13 and examine TargetObject, Details, Image, and ProcessGuid. Identify changes to Run and RunOnce keys and correlate with process creation events.\n"
+    },
+    {
+      "rule_id": "LL-REG-001",
+      "title": "Registry Run key modified",
+      "severity": "medium",
+      "computer": "DESKTOP-SHUTGIN",
+      "timestamp": "2026-10-01T22:50:28.539524+00:00",
+      "event_id": 13,
+      "target_user": null,
+      "attack": [
+        "T1547.001"
+      ],
+      "consumer_text": "A Windows Registry setting used to automatically start programs was modified. This could allow a program to run whenever a user signs in.\n",
+      "false_positive_note": "Legitimate applications frequently modify Run keys during installation, updates, or configuration changes.\n",
+      "next_steps": [
+        "Identify the modified Registry value.",
+        "Check which executable or script was configured.",
+        "Verify whether the change was authorized.",
+        "Investigate unexpected startup programs."
+      ],
+      "analyst_notes": "Review Sysmon Event ID 13 and examine TargetObject, Details, Image, and ProcessGuid. Identify changes to Run and RunOnce keys and correlate with process creation events.\n"
+    },
+    {
+      "rule_id": "LL-REG-001",
+      "title": "Registry Run key modified",
+      "severity": "medium",
+      "computer": "DESKTOP-SHUTGIN",
+      "timestamp": "2026-10-02T02:51:13.603882+00:00",
+      "event_id": 13,
+      "target_user": null,
+      "attack": [
+        "T1547.001"
+      ],
+      "consumer_text": "A Windows Registry setting used to automatically start programs was modified. This could allow a program to run whenever a user signs in.\n",
+      "false_positive_note": "Legitimate applications frequently modify Run keys during installation, updates, or configuration changes.\n",
+      "next_steps": [
+        "Identify the modified Registry value.",
+        "Check which executable or script was configured.",
+        "Verify whether the change was authorized.",
+        "Investigate unexpected startup programs."
+      ],
+      "analyst_notes": "Review Sysmon Event ID 13 and examine TargetObject, Details, Image, and ProcessGuid. Identify changes to Run and RunOnce keys and correlate with process creation events.\n"
+    },
+    {
+      "rule_id": "LL-REG-001",
+      "title": "Registry Run key modified",
+      "severity": "medium",
+      "computer": "DESKTOP-SHUTGIN",
+      "timestamp": "2026-10-02T04:25:50.098903+00:00",
+      "event_id": 13,
+      "target_user": null,
+      "attack": [
+        "T1547.001"
+      ],
+      "consumer_text": "A Windows Registry setting used to automatically start programs was modified. This could allow a program to run whenever a user signs in.\n",
+      "false_positive_note": "Legitimate applications frequently modify Run keys during installation, updates, or configuration changes.\n",
+      "next_steps": [
+        "Identify the modified Registry value.",
+        "Check which executable or script was configured.",
+        "Verify whether the change was authorized.",
+        "Investigate unexpected startup programs."
+      ],
+      "analyst_notes": "Review Sysmon Event ID 13 and examine TargetObject, Details, Image, and ProcessGuid. Identify changes to Run and RunOnce keys and correlate with process creation events.\n"
+    },
+    {
+      "rule_id": "LL-REG-001",
+      "title": "Registry Run key modified",
+      "severity": "medium",
+      "computer": "DESKTOP-SHUTGIN",
+      "timestamp": "2026-10-02T04:51:07.802484+00:00",
+      "event_id": 13,
+      "target_user": null,
+      "attack": [
+        "T1547.001"
+      ],
+      "consumer_text": "A Windows Registry setting used to automatically start programs was modified. This could allow a program to run whenever a user signs in.\n",
+      "false_positive_note": "Legitimate applications frequently modify Run keys during installation, updates, or configuration changes.\n",
+      "next_steps": [
+        "Identify the modified Registry value.",
+        "Check which executable or script was configured.",
+        "Verify whether the change was authorized.",
+        "Investigate unexpected startup programs."
+      ],
+      "analyst_notes": "Review Sysmon Event ID 13 and examine TargetObject, Details, Image, and ProcessGuid. Identify changes to Run and RunOnce keys and correlate with process creation events.\n"
+    }
+  ]
+}

@@ -1,0 +1,43 @@
+
+id: LL-PROC-001
+title: PowerShell launched with encoded command
+channel: Microsoft-Windows-Sysmon/Operational
+event_ids: [1]
+
+
+
+logic:
+  match:
+    process_name: powershell.exe
+  contains_any:
+    command_line:
+      - "-EncodedCommand"
+      - "-enc "
+      - "-e "
+
+
+
+
+severity: high
+attack: [T1059.001, T1027]
+
+consumer_text: >
+  PowerShell was launched on this computer.
+  The command may require investigation because encoded
+  commands can hide what a script is doing.
+
+false_positive_note: >
+  Administrators and legitimate automation tools may
+  use encoded PowerShell commands.
+
+next_steps:
+  - Review the PowerShell command line.
+  - Decode any encoded command safely for analysis.
+  - Identify the parent process that launched PowerShell.
+  - Determine whether the execution was authorized.
+
+analyst_notes: >
+  Review Sysmon Event ID 1. Examine Image, CommandLine,
+  ParentImage, ParentCommandLine, and ProcessGuid.
+  Identify encoded command arguments and correlate
+  related parent-child process activity.

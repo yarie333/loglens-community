@@ -1,0 +1,48 @@
+{
+  "input_file": "C:\\Users\\progr\\Projects\\loglens-community\\tests\\fixtures\\attack-samples\\Network_Service_Guest_added_to_admins_4732.evtx",
+  "total_events": 2,
+  "rules_loaded": 16,
+  "total_findings": 2,
+  "findings": [
+    {
+      "rule_id": "LL-ACCT-002",
+      "title": "Security group membership changed",
+      "severity": "medium",
+      "computer": "MSEDGEWIN10",
+      "timestamp": "2019-09-22T11:22:05.201727+00:00",
+      "event_id": 4732,
+      "target_user": "Administrators",
+      "attack": [
+        "T1098.007"
+      ],
+      "consumer_text": "A user or account was added to a Windows security group. This change could provide additional permissions. Check whether the change was authorized.\n",
+      "false_positive_note": "Group membership changes may occur during normal account administration, onboarding, or approved access requests.\n",
+      "next_steps": [
+        "Identify which security group was modified.",
+        "Verify that the membership change was authorized.",
+        "Investigate unexpected additions to privileged groups."
+      ],
+      "analyst_notes": "Review Security Event IDs 4728 and 4732. Identify the modified group and added member. Determine whether the group grants administrative or other sensitive permissions. Correlate with Event ID 4720 for recently created accounts.\n"
+    },
+    {
+      "rule_id": "LL-ACCT-002",
+      "title": "Security group membership changed",
+      "severity": "medium",
+      "computer": "MSEDGEWIN10",
+      "timestamp": "2019-09-22T11:23:19.251925+00:00",
+      "event_id": 4732,
+      "target_user": "Administrators",
+      "attack": [
+        "T1098.007"
+      ],
+      "consumer_text": "A user or account was added to a Windows security group. This change could provide additional permissions. Check whether the change was authorized.\n",
+      "false_positive_note": "Group membership changes may occur during normal account administration, onboarding, or approved access requests.\n",
+      "next_steps": [
+        "Identify which security group was modified.",
+        "Verify that the membership change was authorized.",
+        "Investigate unexpected additions to privileged groups."
+      ],
+      "analyst_notes": "Review Security Event IDs 4728 and 4732. Identify the modified group and added member. Determine whether the group grants administrative or other sensitive permissions. Correlate with Event ID 4720 for recently created accounts.\n"
+    }
+  ]
+}

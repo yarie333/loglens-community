@@ -1,0 +1,31 @@
+
+id: LL-PERSIST-002
+title: New Windows service installed
+channel: System
+event_ids: [7045]
+
+logic:
+  match: {}
+
+severity: medium
+attack: [T1543.003]
+
+consumer_text: >
+  A new Windows service was installed on this computer.
+  Services can run automatically and may be used to maintain
+  access to a system.
+
+false_positive_note: >
+  Legitimate software installations, updates, and administrative
+  tools commonly create new Windows services.
+
+next_steps:
+  - Identify the newly installed service.
+  - Check the executable path associated with the service.
+  - Verify that the installation was authorized.
+  - Investigate unfamiliar or suspicious services.
+
+analyst_notes: >
+  Review System Event ID 7045. Examine the service name,
+  executable path, service type, and account used to run it.
+  Correlate with process creation and other persistence events.

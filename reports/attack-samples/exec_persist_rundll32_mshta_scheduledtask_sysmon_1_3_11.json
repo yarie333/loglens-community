@@ -1,0 +1,7 @@
+{
+  "input_file": "C:\\Users\\progr\\Projects\\loglens-community\\tests\\fixtures\\attack-samples\\exec_persist_rundll32_mshta_scheduledtask_sysmon_1_3_11.evtx",
+  "total_events": 8,
+  "rules_loaded": 16,
+  "total_findings": 0,
+  "findings": []
+}

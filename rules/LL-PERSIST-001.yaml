@@ -1,0 +1,33 @@
+
+id: LL-PERSIST-001
+title: Windows scheduled task created
+channel: Security
+event_ids: [4698]
+
+logic:
+  match: {}
+
+severity: medium
+attack: [T1053.005]
+
+consumer_text: >
+  A new scheduled task was created on this computer.
+  Scheduled tasks can automatically run programs or scripts.
+  Check whether this task was expected.
+
+false_positive_note: >
+  Windows updates, software installations, maintenance tools,
+  and administrators frequently create legitimate scheduled tasks.
+
+next_steps:
+  - Identify the name of the newly created task.
+  - Check which program or script the task executes.
+  - Confirm that the task was created by an authorized user.
+  - Investigate unexpected or suspicious tasks.
+
+analyst_notes: >
+  Review Security Event ID 4698. Examine TaskName,
+  TaskContent, and the account responsible for creating
+  the task. Look for suspicious PowerShell commands,
+  encoded scripts, or unexpected executable paths.
+  Correlate with Sysmon process creation events where available.

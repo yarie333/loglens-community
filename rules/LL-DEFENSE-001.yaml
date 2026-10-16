@@ -1,0 +1,32 @@
+
+id: LL-DEFENSE-001
+title: Windows Security audit log cleared
+channel: Security
+event_ids: [1102]
+
+logic:
+  match: {}
+
+severity: high
+attack: [T1070.001]
+
+consumer_text: >
+  The Windows Security event log was cleared.
+  This may have removed records of previous activity.
+  Check whether this action was expected and authorized.
+
+false_positive_note: >
+  Administrators may clear event logs during approved
+  maintenance, troubleshooting, or lab exercises.
+
+next_steps:
+  - Confirm whether the Security log was intentionally cleared.
+  - Identify the account responsible for the action.
+  - Check for unusual activity before the log was cleared.
+  - Preserve any remaining logs and related evidence.
+
+analyst_notes: >
+  Review Security Event ID 1102 and identify the subject
+  account responsible for clearing the audit log.
+  Correlate with administrative logons, process execution,
+  and other evidence of defense evasion.

@@ -1,0 +1,34 @@
+
+id: LL-NET-001
+title: DNS query to a monitored text-sharing domain
+channel: Microsoft-Windows-Sysmon/Operational
+event_ids: [22]
+
+logic:
+  contains:
+    dns_query: "pastebin.com"
+
+severity: low
+attack: [T1071.004]
+
+consumer_text: >
+  A program on this computer requested the address of a
+  monitored text-sharing website. This activity is not
+  necessarily malicious, but it may require investigation
+  when combined with other unusual behavior.
+
+false_positive_note: >
+  Users, browsers, developers, and legitimate applications
+  may access text-sharing websites during normal activity.
+
+next_steps:
+  - Identify which process made the DNS request.
+  - Determine whether the domain was accessed intentionally.
+  - Review related network and process activity.
+  - Investigate unexpected or repeated requests.
+
+analyst_notes: >
+  Review Sysmon Event ID 22. Examine QueryName, Image,
+  ProcessGuid, and QueryResults. Correlate the DNS request
+  with process creation events and other suspicious activity.
+  A domain match alone does not establish malicious behavior.

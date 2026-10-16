@@ -1,0 +1,32 @@
+
+id: LL-EXEC-001
+title: PowerShell script block execution
+channel: Microsoft-Windows-PowerShell/Operational
+event_ids: [4104]
+
+logic:
+  match: {}
+
+severity: low
+attack: [T1059.001]
+
+consumer_text: >
+  PowerShell script activity was recorded on this computer.
+  PowerShell is a legitimate Windows tool, but it can also
+  be used to run unauthorized commands or scripts.
+
+false_positive_note: >
+  PowerShell is commonly used by administrators, software
+  installers, maintenance scripts, and automation tools.
+
+next_steps:
+  - Review the PowerShell script that was executed.
+  - Confirm whether the activity was expected.
+  - Investigate unfamiliar commands or scripts.
+  - Check for related suspicious activity.
+
+analyst_notes: >
+  Review PowerShell Operational Event ID 4104.
+  Examine ScriptBlockText and correlate with process
+  creation events. Pay particular attention to encoded
+  commands, downloads, and unexpected script execution.

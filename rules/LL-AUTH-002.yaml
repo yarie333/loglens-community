@@ -1,0 +1,38 @@
+
+id: LL-AUTH-002
+title: Successful login after failed logon burst
+channel: Security
+event_ids: [4625, 4624]
+
+logic:
+  sequence:
+    - event_id: 4625
+      threshold: 10
+      window_minutes: 5
+    - event_id: 4624
+      within_minutes: 10
+  group_by: [computer, target_user]
+
+severity: high
+attack: [T1110]
+
+consumer_text: >
+  Someone tried to sign in to this computer many times
+  unsuccessfully, then successfully signed in to the
+  same account shortly afterward.
+
+false_positive_note: >
+  This can happen when someone forgets their password
+  and eventually enters the correct one.
+
+next_steps:
+  - Check whether you recognize the successful login.
+  - Change the account password if the activity was unexpected.
+  - Enable multi-factor authentication where available.
+
+analyst_notes: >
+  Correlate Security Event IDs 4625 and 4624 by computer
+  and target account. Review source IP addresses, logon
+  types, and timestamps to determine whether the successful
+  authentication originated from the same source as the
+  preceding failures.

@@ -1,0 +1,36 @@
+
+id: LL-DISC-002
+title: Windows user account enumeration
+channel: Microsoft-Windows-Sysmon/Operational
+event_ids: [1]
+
+logic:
+  match:
+    process_name: net.exe
+  contains:
+    command_line: "net user"
+
+severity: low
+attack: [T1087.001]
+
+consumer_text: >
+  A command was executed to gather information about
+  Windows user accounts. This may be normal administrative
+  activity or an attempt to discover accounts on the system.
+
+false_positive_note: >
+  System administrators and troubleshooting scripts commonly
+  use net user to manage or inspect Windows accounts.
+
+next_steps:
+  - Identify the account that executed the command.
+  - Review the parent process and command line.
+  - Check for related account discovery activity.
+  - Determine whether the command was expected.
+
+analyst_notes: >
+  Review Sysmon Event ID 1. Examine Image, CommandLine,
+  ParentImage, User, and ProcessGuid. Correlate with
+  additional discovery commands and unusual authentication
+  activity. MITRE ATT&CK T1087.001 covers local account
+  discovery.

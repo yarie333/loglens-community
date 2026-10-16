@@ -1,0 +1,32 @@
+
+id: LL-DISC-001
+title: Windows identity discovery command executed
+channel: Microsoft-Windows-Sysmon/Operational
+event_ids: [1]
+
+logic:
+  match:
+    process_name: whoami.exe
+
+severity: low
+attack: [T1033]
+
+consumer_text: >
+  A command was executed to identify the current Windows
+  user. This may be normal activity or part of an attempt
+  to gather information about the computer.
+
+false_positive_note: >
+  Administrators, troubleshooting scripts, and legitimate
+  software may use whoami.exe during normal operations.
+
+next_steps:
+  - Identify the user who executed the command.
+  - Review the parent process and command line.
+  - Check for related unusual discovery commands.
+  - Determine whether the activity was expected.
+
+analyst_notes: >
+  Review Sysmon Event ID 1. Examine Image, CommandLine,
+  ParentImage, User, and ProcessGuid. Correlate with other
+  discovery commands and suspicious process activity.

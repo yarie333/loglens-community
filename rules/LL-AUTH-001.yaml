@@ -1,0 +1,30 @@
+
+id: LL-AUTH-001
+title: Failed logon burst
+channel: Security
+event_ids: [4625]
+
+logic:
+  count_by: [target_user]
+  window_minutes: 5
+  threshold: 10
+
+severity: medium
+attack: [T1110]
+
+consumer_text: >
+  Someone tried to sign in to this computer and got the
+  password wrong many times in a row.
+
+false_positive_note: >
+  A forgotten password, a child guessing, or a saved
+  password on another device that is now out of date.
+
+next_steps:
+  - If you did not do this, change the password for this account.
+  - Check whether Remote Desktop is turned on and turn it off if unused.
+
+analyst_notes: >
+  Pivot on LogonType and IpAddress. Type 3 or 10 from a
+  non-local address suggests exposure of RDP or SMB.
+  Check for 4624 within 10 minutes (LL-AUTH-002).

@@ -1,0 +1,724 @@
+{
+  "input_file": "tests\\fixtures\\lab\\Security.evtx",
+  "total_events": 6328,
+  "rules_loaded": 16,
+  "total_findings": 35,
+  "findings": [
+    {
+      "rule_id": "LL-ACCT-001",
+      "title": "New Windows user account created",
+      "severity": "medium",
+      "computer": "WIN-6AI0FRUE97H",
+      "timestamp": "2026-09-30T07:38:15.993577+00:00",
+      "event_id": 4720,
+      "target_user": "WDAGUtilityAccount",
+      "attack": [
+        "T1136.001"
+      ],
+      "consumer_text": "A new user account was created on this computer. If you did not expect this change, someone may have created an account without your permission.\n",
+      "false_positive_note": "New accounts are commonly created when setting up a computer, adding family members, or onboarding employees.\n",
+      "next_steps": [
+        "Check whether you recognize the new account.",
+        "Ask the computer administrator whether the account was authorized.",
+        "Disable the account if it is unauthorized and investigate the activity."
+      ],
+      "analyst_notes": "Review Security Event ID 4720. Identify the account creator using SubjectUserName and the newly created account using TargetUserName. Correlate with group membership changes, particularly Event IDs 4728 and 4732.\n"
+    },
+    {
+      "rule_id": "LL-ACCT-001",
+      "title": "New Windows user account created",
+      "severity": "medium",
+      "computer": "DESKTOP-SHUTGIN",
+      "timestamp": "2026-09-30T07:44:28.903173+00:00",
+      "event_id": 4720,
+      "target_user": "defaultuser0",
+      "attack": [
+        "T1136.001"
+      ],
+      "consumer_text": "A new user account was created on this computer. If you did not expect this change, someone may have created an account without your permission.\n",
+      "false_positive_note": "New accounts are commonly created when setting up a computer, adding family members, or onboarding employees.\n",
+      "next_steps": [
+        "Check whether you recognize the new account.",
+        "Ask the computer administrator whether the account was authorized.",
+        "Disable the account if it is unauthorized and investigate the activity."
+      ],
+      "analyst_notes": "Review Security Event ID 4720. Identify the account creator using SubjectUserName and the newly created account using TargetUserName. Correlate with group membership changes, particularly Event IDs 4728 and 4732.\n"
+    },
+    {
+      "rule_id": "LL-ACCT-001",
+      "title": "New Windows user account created",
+      "severity": "medium",
+      "computer": "DESKTOP-SHUTGIN",
+      "timestamp": "2026-09-30T05:17:55.918177+00:00",
+      "event_id": 4720,
+      "target_user": "LogLens",
+      "attack": [
+        "T1136.001"
+      ],
+      "consumer_text": "A new user account was created on this computer. If you did not expect this change, someone may have created an account without your permission.\n",
+      "false_positive_note": "New accounts are commonly created when setting up a computer, adding family members, or onboarding employees.\n",
+      "next_steps": [
+        "Check whether you recognize the new account.",
+        "Ask the computer administrator whether the account was authorized.",
+        "Disable the account if it is unauthorized and investigate the activity."
+      ],
+      "analyst_notes": "Review Security Event ID 4720. Identify the account creator using SubjectUserName and the newly created account using TargetUserName. Correlate with group membership changes, particularly Event IDs 4728 and 4732.\n"
+    },
+    {
+      "rule_id": "LL-ACCT-001",
+      "title": "New Windows user account created",
+      "severity": "medium",
+      "computer": "DESKTOP-SHUTGIN",
+      "timestamp": "2026-10-02T02:49:00.033320+00:00",
+      "event_id": 4720,
+      "target_user": "labtest",
+      "attack": [
+        "T1136.001"
+      ],
+      "consumer_text": "A new user account was created on this computer. If you did not expect this change, someone may have created an account without your permission.\n",
+      "false_positive_note": "New accounts are commonly created when setting up a computer, adding family members, or onboarding employees.\n",
+      "next_steps": [
+        "Check whether you recognize the new account.",
+        "Ask the computer administrator whether the account was authorized.",
+        "Disable the account if it is unauthorized and investigate the activity."
+      ],
+      "analyst_notes": "Review Security Event ID 4720. Identify the account creator using SubjectUserName and the newly created account using TargetUserName. Correlate with group membership changes, particularly Event IDs 4728 and 4732.\n"
+    },
+    {
+      "rule_id": "LL-ACCT-002",
+      "title": "Security group membership changed",
+      "severity": "medium",
+      "computer": "WIN-6AI0FRUE97H",
+      "timestamp": "2026-09-30T07:38:15.991930+00:00",
+      "event_id": 4732,
+      "target_user": "IIS_IUSRS",
+      "attack": [
+        "T1098.007"
+      ],
+      "consumer_text": "A user or account was added to a Windows security group. This change could provide additional permissions. Check whether the change was authorized.\n",
+      "false_positive_note": "Group membership changes may occur during normal account administration, onboarding, or approved access requests.\n",
+      "next_steps": [
+        "Identify which security group was modified.",
+        "Verify that the membership change was authorized.",
+        "Investigate unexpected additions to privileged groups."
+      ],
+      "analyst_notes": "Review Security Event IDs 4728 and 4732. Identify the modified group and added member. Determine whether the group grants administrative or other sensitive permissions. Correlate with Event ID 4720 for recently created accounts.\n"
+    },
+    {
+      "rule_id": "LL-ACCT-002",
+      "title": "Security group membership changed",
+      "severity": "medium",
+      "computer": "WIN-6AI0FRUE97H",
+      "timestamp": "2026-09-30T07:38:15.993464+00:00",
+      "event_id": 4728,
+      "target_user": "None",
+      "attack": [
+        "T1098.007"
+      ],
+      "consumer_text": "A user or account was added to a Windows security group. This change could provide additional permissions. Check whether the change was authorized.\n",
+      "false_positive_note": "Group membership changes may occur during normal account administration, onboarding, or approved access requests.\n",
+      "next_steps": [
+        "Identify which security group was modified.",
+        "Verify that the membership change was authorized.",
+        "Investigate unexpected additions to privileged groups."
+      ],
+      "analyst_notes": "Review Security Event IDs 4728 and 4732. Identify the modified group and added member. Determine whether the group grants administrative or other sensitive permissions. Correlate with Event ID 4720 for recently created accounts.\n"
+    },
+    {
+      "rule_id": "LL-ACCT-002",
+      "title": "Security group membership changed",
+      "severity": "medium",
+      "computer": "WIN-6AI0FRUE97H",
+      "timestamp": "2026-09-30T07:38:50.941890+00:00",
+      "event_id": 4732,
+      "target_user": "Users",
+      "attack": [
+        "T1098.007"
+      ],
+      "consumer_text": "A user or account was added to a Windows security group. This change could provide additional permissions. Check whether the change was authorized.\n",
+      "false_positive_note": "Group membership changes may occur during normal account administration, onboarding, or approved access requests.\n",
+      "next_steps": [
+        "Identify which security group was modified.",
+        "Verify that the membership change was authorized.",
+        "Investigate unexpected additions to privileged groups."
+      ],
+      "analyst_notes": "Review Security Event IDs 4728 and 4732. Identify the modified group and added member. Determine whether the group grants administrative or other sensitive permissions. Correlate with Event ID 4720 for recently created accounts.\n"
+    },
+    {
+      "rule_id": "LL-ACCT-002",
+      "title": "Security group membership changed",
+      "severity": "medium",
+      "computer": "WIN-6AI0FRUE97H",
+      "timestamp": "2026-09-30T07:38:50.943778+00:00",
+      "event_id": 4732,
+      "target_user": "Users",
+      "attack": [
+        "T1098.007"
+      ],
+      "consumer_text": "A user or account was added to a Windows security group. This change could provide additional permissions. Check whether the change was authorized.\n",
+      "false_positive_note": "Group membership changes may occur during normal account administration, onboarding, or approved access requests.\n",
+      "next_steps": [
+        "Identify which security group was modified.",
+        "Verify that the membership change was authorized.",
+        "Investigate unexpected additions to privileged groups."
+      ],
+      "analyst_notes": "Review Security Event IDs 4728 and 4732. Identify the modified group and added member. Determine whether the group grants administrative or other sensitive permissions. Correlate with Event ID 4720 for recently created accounts.\n"
+    },
+    {
+      "rule_id": "LL-ACCT-002",
+      "title": "Security group membership changed",
+      "severity": "medium",
+      "computer": "DESKTOP-SHUTGIN",
+      "timestamp": "2026-09-30T07:44:28.902428+00:00",
+      "event_id": 4728,
+      "target_user": "None",
+      "attack": [
+        "T1098.007"
+      ],
+      "consumer_text": "A user or account was added to a Windows security group. This change could provide additional permissions. Check whether the change was authorized.\n",
+      "false_positive_note": "Group membership changes may occur during normal account administration, onboarding, or approved access requests.\n",
+      "next_steps": [
+        "Identify which security group was modified.",
+        "Verify that the membership change was authorized.",
+        "Investigate unexpected additions to privileged groups."
+      ],
+      "analyst_notes": "Review Security Event IDs 4728 and 4732. Identify the modified group and added member. Determine whether the group grants administrative or other sensitive permissions. Correlate with Event ID 4720 for recently created accounts.\n"
+    },
+    {
+      "rule_id": "LL-ACCT-002",
+      "title": "Security group membership changed",
+      "severity": "medium",
+      "computer": "DESKTOP-SHUTGIN",
+      "timestamp": "2026-09-30T07:44:28.922331+00:00",
+      "event_id": 4732,
+      "target_user": "Users",
+      "attack": [
+        "T1098.007"
+      ],
+      "consumer_text": "A user or account was added to a Windows security group. This change could provide additional permissions. Check whether the change was authorized.\n",
+      "false_positive_note": "Group membership changes may occur during normal account administration, onboarding, or approved access requests.\n",
+      "next_steps": [
+        "Identify which security group was modified.",
+        "Verify that the membership change was authorized.",
+        "Investigate unexpected additions to privileged groups."
+      ],
+      "analyst_notes": "Review Security Event IDs 4728 and 4732. Identify the modified group and added member. Determine whether the group grants administrative or other sensitive permissions. Correlate with Event ID 4720 for recently created accounts.\n"
+    },
+    {
+      "rule_id": "LL-ACCT-002",
+      "title": "Security group membership changed",
+      "severity": "medium",
+      "computer": "DESKTOP-SHUTGIN",
+      "timestamp": "2026-09-30T07:44:29.104665+00:00",
+      "event_id": 4732,
+      "target_user": "Administrators",
+      "attack": [
+        "T1098.007"
+      ],
+      "consumer_text": "A user or account was added to a Windows security group. This change could provide additional permissions. Check whether the change was authorized.\n",
+      "false_positive_note": "Group membership changes may occur during normal account administration, onboarding, or approved access requests.\n",
+      "next_steps": [
+        "Identify which security group was modified.",
+        "Verify that the membership change was authorized.",
+        "Investigate unexpected additions to privileged groups."
+      ],
+      "analyst_notes": "Review Security Event IDs 4728 and 4732. Identify the modified group and added member. Determine whether the group grants administrative or other sensitive permissions. Correlate with Event ID 4720 for recently created accounts.\n"
+    },
+    {
+      "rule_id": "LL-ACCT-002",
+      "title": "Security group membership changed",
+      "severity": "medium",
+      "computer": "DESKTOP-SHUTGIN",
+      "timestamp": "2026-09-30T05:17:55.917443+00:00",
+      "event_id": 4728,
+      "target_user": "None",
+      "attack": [
+        "T1098.007"
+      ],
+      "consumer_text": "A user or account was added to a Windows security group. This change could provide additional permissions. Check whether the change was authorized.\n",
+      "false_positive_note": "Group membership changes may occur during normal account administration, onboarding, or approved access requests.\n",
+      "next_steps": [
+        "Identify which security group was modified.",
+        "Verify that the membership change was authorized.",
+        "Investigate unexpected additions to privileged groups."
+      ],
+      "analyst_notes": "Review Security Event IDs 4728 and 4732. Identify the modified group and added member. Determine whether the group grants administrative or other sensitive permissions. Correlate with Event ID 4720 for recently created accounts.\n"
+    },
+    {
+      "rule_id": "LL-ACCT-002",
+      "title": "Security group membership changed",
+      "severity": "medium",
+      "computer": "DESKTOP-SHUTGIN",
+      "timestamp": "2026-09-30T05:17:55.918623+00:00",
+      "event_id": 4732,
+      "target_user": "Users",
+      "attack": [
+        "T1098.007"
+      ],
+      "consumer_text": "A user or account was added to a Windows security group. This change could provide additional permissions. Check whether the change was authorized.\n",
+      "false_positive_note": "Group membership changes may occur during normal account administration, onboarding, or approved access requests.\n",
+      "next_steps": [
+        "Identify which security group was modified.",
+        "Verify that the membership change was authorized.",
+        "Investigate unexpected additions to privileged groups."
+      ],
+      "analyst_notes": "Review Security Event IDs 4728 and 4732. Identify the modified group and added member. Determine whether the group grants administrative or other sensitive permissions. Correlate with Event ID 4720 for recently created accounts.\n"
+    },
+    {
+      "rule_id": "LL-ACCT-002",
+      "title": "Security group membership changed",
+      "severity": "medium",
+      "computer": "DESKTOP-SHUTGIN",
+      "timestamp": "2026-09-30T05:17:56.097665+00:00",
+      "event_id": 4732,
+      "target_user": "Administrators",
+      "attack": [
+        "T1098.007"
+      ],
+      "consumer_text": "A user or account was added to a Windows security group. This change could provide additional permissions. Check whether the change was authorized.\n",
+      "false_positive_note": "Group membership changes may occur during normal account administration, onboarding, or approved access requests.\n",
+      "next_steps": [
+        "Identify which security group was modified.",
+        "Verify that the membership change was authorized.",
+        "Investigate unexpected additions to privileged groups."
+      ],
+      "analyst_notes": "Review Security Event IDs 4728 and 4732. Identify the modified group and added member. Determine whether the group grants administrative or other sensitive permissions. Correlate with Event ID 4720 for recently created accounts.\n"
+    },
+    {
+      "rule_id": "LL-ACCT-002",
+      "title": "Security group membership changed",
+      "severity": "medium",
+      "computer": "DESKTOP-SHUTGIN",
+      "timestamp": "2026-10-02T02:49:00.031246+00:00",
+      "event_id": 4728,
+      "target_user": "None",
+      "attack": [
+        "T1098.007"
+      ],
+      "consumer_text": "A user or account was added to a Windows security group. This change could provide additional permissions. Check whether the change was authorized.\n",
+      "false_positive_note": "Group membership changes may occur during normal account administration, onboarding, or approved access requests.\n",
+      "next_steps": [
+        "Identify which security group was modified.",
+        "Verify that the membership change was authorized.",
+        "Investigate unexpected additions to privileged groups."
+      ],
+      "analyst_notes": "Review Security Event IDs 4728 and 4732. Identify the modified group and added member. Determine whether the group grants administrative or other sensitive permissions. Correlate with Event ID 4720 for recently created accounts.\n"
+    },
+    {
+      "rule_id": "LL-ACCT-002",
+      "title": "Security group membership changed",
+      "severity": "medium",
+      "computer": "DESKTOP-SHUTGIN",
+      "timestamp": "2026-10-02T02:49:00.079763+00:00",
+      "event_id": 4732,
+      "target_user": "Users",
+      "attack": [
+        "T1098.007"
+      ],
+      "consumer_text": "A user or account was added to a Windows security group. This change could provide additional permissions. Check whether the change was authorized.\n",
+      "false_positive_note": "Group membership changes may occur during normal account administration, onboarding, or approved access requests.\n",
+      "next_steps": [
+        "Identify which security group was modified.",
+        "Verify that the membership change was authorized.",
+        "Investigate unexpected additions to privileged groups."
+      ],
+      "analyst_notes": "Review Security Event IDs 4728 and 4732. Identify the modified group and added member. Determine whether the group grants administrative or other sensitive permissions. Correlate with Event ID 4720 for recently created accounts.\n"
+    },
+    {
+      "rule_id": "LL-ACCT-002",
+      "title": "Security group membership changed",
+      "severity": "medium",
+      "computer": "DESKTOP-SHUTGIN",
+      "timestamp": "2026-10-02T02:50:37.112981+00:00",
+      "event_id": 4732,
+      "target_user": "Administrators",
+      "attack": [
+        "T1098.007"
+      ],
+      "consumer_text": "A user or account was added to a Windows security group. This change could provide additional permissions. Check whether the change was authorized.\n",
+      "false_positive_note": "Group membership changes may occur during normal account administration, onboarding, or approved access requests.\n",
+      "next_steps": [
+        "Identify which security group was modified.",
+        "Verify that the membership change was authorized.",
+        "Investigate unexpected additions to privileged groups."
+      ],
+      "analyst_notes": "Review Security Event IDs 4728 and 4732. Identify the modified group and added member. Determine whether the group grants administrative or other sensitive permissions. Correlate with Event ID 4720 for recently created accounts.\n"
+    },
+    {
+      "rule_id": "LL-AUTH-001",
+      "title": "Failed logon burst",
+      "severity": "medium",
+      "computer": "DESKTOP-SHUTGIN",
+      "target_user": "LogLens",
+      "event_count": 10,
+      "first_seen": "2026-10-01T22:03:15.655267+00:00",
+      "last_seen": "2026-10-01T22:05:50.138022+00:00",
+      "attack": [
+        "T1110"
+      ],
+      "consumer_text": "Someone tried to sign in to this computer and got the password wrong many times in a row.\n",
+      "false_positive_note": "A forgotten password, a child guessing, or a saved password on another device that is now out of date.\n",
+      "next_steps": [
+        "If you did not do this, change the password for this account.",
+        "Check whether Remote Desktop is turned on and turn it off if unused."
+      ],
+      "analyst_notes": "Pivot on LogonType and IpAddress. Type 3 or 10 from a non-local address suggests exposure of RDP or SMB. Check for 4624 within 10 minutes (LL-AUTH-002).\n"
+    },
+    {
+      "rule_id": "LL-AUTH-001",
+      "title": "Failed logon burst",
+      "severity": "medium",
+      "computer": "DESKTOP-SHUTGIN",
+      "target_user": "LogLens",
+      "event_count": 10,
+      "first_seen": "2026-10-02T02:09:34.017257+00:00",
+      "last_seen": "2026-10-02T02:12:38.277997+00:00",
+      "attack": [
+        "T1110"
+      ],
+      "consumer_text": "Someone tried to sign in to this computer and got the password wrong many times in a row.\n",
+      "false_positive_note": "A forgotten password, a child guessing, or a saved password on another device that is now out of date.\n",
+      "next_steps": [
+        "If you did not do this, change the password for this account.",
+        "Check whether Remote Desktop is turned on and turn it off if unused."
+      ],
+      "analyst_notes": "Pivot on LogonType and IpAddress. Type 3 or 10 from a non-local address suggests exposure of RDP or SMB. Check for 4624 within 10 minutes (LL-AUTH-002).\n"
+    },
+    {
+      "rule_id": "LL-DEFENSE-003",
+      "title": "Windows audit policy changed",
+      "severity": "medium",
+      "computer": "DESKTOP-SHUTGIN",
+      "timestamp": "2026-09-30T05:49:15.929249+00:00",
+      "event_id": 4719,
+      "target_user": null,
+      "attack": [
+        "T1562.002"
+      ],
+      "consumer_text": "The Windows security auditing policy was changed. This may affect which activities are recorded in the computer's security logs.\n",
+      "false_positive_note": "Audit policy changes may occur during authorized administration, Group Policy updates, or security configuration maintenance.\n",
+      "next_steps": [
+        "Identify which audit settings were changed.",
+        "Verify that the changes were authorized.",
+        "Check whether important security auditing remains enabled.",
+        "Investigate unexpected changes to logging settings."
+      ],
+      "analyst_notes": "Review Security Event ID 4719. Examine the account responsible, the affected audit subcategory, and the changes to auditing settings. Determine whether successful or failed event auditing was disabled. Correlate with administrative activity and other defense evasion indicators.\n"
+    },
+    {
+      "rule_id": "LL-DEFENSE-003",
+      "title": "Windows audit policy changed",
+      "severity": "medium",
+      "computer": "DESKTOP-SHUTGIN",
+      "timestamp": "2026-09-30T05:49:54.607113+00:00",
+      "event_id": 4719,
+      "target_user": null,
+      "attack": [
+        "T1562.002"
+      ],
+      "consumer_text": "The Windows security auditing policy was changed. This may affect which activities are recorded in the computer's security logs.\n",
+      "false_positive_note": "Audit policy changes may occur during authorized administration, Group Policy updates, or security configuration maintenance.\n",
+      "next_steps": [
+        "Identify which audit settings were changed.",
+        "Verify that the changes were authorized.",
+        "Check whether important security auditing remains enabled.",
+        "Investigate unexpected changes to logging settings."
+      ],
+      "analyst_notes": "Review Security Event ID 4719. Examine the account responsible, the affected audit subcategory, and the changes to auditing settings. Determine whether successful or failed event auditing was disabled. Correlate with administrative activity and other defense evasion indicators.\n"
+    },
+    {
+      "rule_id": "LL-DEFENSE-003",
+      "title": "Windows audit policy changed",
+      "severity": "medium",
+      "computer": "DESKTOP-SHUTGIN",
+      "timestamp": "2026-09-30T05:50:10.159309+00:00",
+      "event_id": 4719,
+      "target_user": null,
+      "attack": [
+        "T1562.002"
+      ],
+      "consumer_text": "The Windows security auditing policy was changed. This may affect which activities are recorded in the computer's security logs.\n",
+      "false_positive_note": "Audit policy changes may occur during authorized administration, Group Policy updates, or security configuration maintenance.\n",
+      "next_steps": [
+        "Identify which audit settings were changed.",
+        "Verify that the changes were authorized.",
+        "Check whether important security auditing remains enabled.",
+        "Investigate unexpected changes to logging settings."
+      ],
+      "analyst_notes": "Review Security Event ID 4719. Examine the account responsible, the affected audit subcategory, and the changes to auditing settings. Determine whether successful or failed event auditing was disabled. Correlate with administrative activity and other defense evasion indicators.\n"
+    },
+    {
+      "rule_id": "LL-DEFENSE-003",
+      "title": "Windows audit policy changed",
+      "severity": "medium",
+      "computer": "DESKTOP-SHUTGIN",
+      "timestamp": "2026-09-30T05:50:23.170643+00:00",
+      "event_id": 4719,
+      "target_user": null,
+      "attack": [
+        "T1562.002"
+      ],
+      "consumer_text": "The Windows security auditing policy was changed. This may affect which activities are recorded in the computer's security logs.\n",
+      "false_positive_note": "Audit policy changes may occur during authorized administration, Group Policy updates, or security configuration maintenance.\n",
+      "next_steps": [
+        "Identify which audit settings were changed.",
+        "Verify that the changes were authorized.",
+        "Check whether important security auditing remains enabled.",
+        "Investigate unexpected changes to logging settings."
+      ],
+      "analyst_notes": "Review Security Event ID 4719. Examine the account responsible, the affected audit subcategory, and the changes to auditing settings. Determine whether successful or failed event auditing was disabled. Correlate with administrative activity and other defense evasion indicators.\n"
+    },
+    {
+      "rule_id": "LL-DEFENSE-003",
+      "title": "Windows audit policy changed",
+      "severity": "medium",
+      "computer": "DESKTOP-SHUTGIN",
+      "timestamp": "2026-09-30T05:50:37.847309+00:00",
+      "event_id": 4719,
+      "target_user": null,
+      "attack": [
+        "T1562.002"
+      ],
+      "consumer_text": "The Windows security auditing policy was changed. This may affect which activities are recorded in the computer's security logs.\n",
+      "false_positive_note": "Audit policy changes may occur during authorized administration, Group Policy updates, or security configuration maintenance.\n",
+      "next_steps": [
+        "Identify which audit settings were changed.",
+        "Verify that the changes were authorized.",
+        "Check whether important security auditing remains enabled.",
+        "Investigate unexpected changes to logging settings."
+      ],
+      "analyst_notes": "Review Security Event ID 4719. Examine the account responsible, the affected audit subcategory, and the changes to auditing settings. Determine whether successful or failed event auditing was disabled. Correlate with administrative activity and other defense evasion indicators.\n"
+    },
+    {
+      "rule_id": "LL-DEFENSE-003",
+      "title": "Windows audit policy changed",
+      "severity": "medium",
+      "computer": "DESKTOP-SHUTGIN",
+      "timestamp": "2026-09-30T05:50:53.400241+00:00",
+      "event_id": 4719,
+      "target_user": null,
+      "attack": [
+        "T1562.002"
+      ],
+      "consumer_text": "The Windows security auditing policy was changed. This may affect which activities are recorded in the computer's security logs.\n",
+      "false_positive_note": "Audit policy changes may occur during authorized administration, Group Policy updates, or security configuration maintenance.\n",
+      "next_steps": [
+        "Identify which audit settings were changed.",
+        "Verify that the changes were authorized.",
+        "Check whether important security auditing remains enabled.",
+        "Investigate unexpected changes to logging settings."
+      ],
+      "analyst_notes": "Review Security Event ID 4719. Examine the account responsible, the affected audit subcategory, and the changes to auditing settings. Determine whether successful or failed event auditing was disabled. Correlate with administrative activity and other defense evasion indicators.\n"
+    },
+    {
+      "rule_id": "LL-DEFENSE-003",
+      "title": "Windows audit policy changed",
+      "severity": "medium",
+      "computer": "DESKTOP-SHUTGIN",
+      "timestamp": "2026-09-30T05:51:20.840966+00:00",
+      "event_id": 4719,
+      "target_user": null,
+      "attack": [
+        "T1562.002"
+      ],
+      "consumer_text": "The Windows security auditing policy was changed. This may affect which activities are recorded in the computer's security logs.\n",
+      "false_positive_note": "Audit policy changes may occur during authorized administration, Group Policy updates, or security configuration maintenance.\n",
+      "next_steps": [
+        "Identify which audit settings were changed.",
+        "Verify that the changes were authorized.",
+        "Check whether important security auditing remains enabled.",
+        "Investigate unexpected changes to logging settings."
+      ],
+      "analyst_notes": "Review Security Event ID 4719. Examine the account responsible, the affected audit subcategory, and the changes to auditing settings. Determine whether successful or failed event auditing was disabled. Correlate with administrative activity and other defense evasion indicators.\n"
+    },
+    {
+      "rule_id": "LL-PERSIST-001",
+      "title": "Windows scheduled task created",
+      "severity": "medium",
+      "computer": "DESKTOP-SHUTGIN",
+      "timestamp": "2026-09-30T06:44:07.564191+00:00",
+      "event_id": 4698,
+      "target_user": null,
+      "attack": [
+        "T1053.005"
+      ],
+      "consumer_text": "A new scheduled task was created on this computer. Scheduled tasks can automatically run programs or scripts. Check whether this task was expected.\n",
+      "false_positive_note": "Windows updates, software installations, maintenance tools, and administrators frequently create legitimate scheduled tasks.\n",
+      "next_steps": [
+        "Identify the name of the newly created task.",
+        "Check which program or script the task executes.",
+        "Confirm that the task was created by an authorized user.",
+        "Investigate unexpected or suspicious tasks."
+      ],
+      "analyst_notes": "Review Security Event ID 4698. Examine TaskName, TaskContent, and the account responsible for creating the task. Look for suspicious PowerShell commands, encoded scripts, or unexpected executable paths. Correlate with Sysmon process creation events where available.\n"
+    },
+    {
+      "rule_id": "LL-PERSIST-001",
+      "title": "Windows scheduled task created",
+      "severity": "medium",
+      "computer": "DESKTOP-SHUTGIN",
+      "timestamp": "2026-09-30T06:44:07.697437+00:00",
+      "event_id": 4698,
+      "target_user": null,
+      "attack": [
+        "T1053.005"
+      ],
+      "consumer_text": "A new scheduled task was created on this computer. Scheduled tasks can automatically run programs or scripts. Check whether this task was expected.\n",
+      "false_positive_note": "Windows updates, software installations, maintenance tools, and administrators frequently create legitimate scheduled tasks.\n",
+      "next_steps": [
+        "Identify the name of the newly created task.",
+        "Check which program or script the task executes.",
+        "Confirm that the task was created by an authorized user.",
+        "Investigate unexpected or suspicious tasks."
+      ],
+      "analyst_notes": "Review Security Event ID 4698. Examine TaskName, TaskContent, and the account responsible for creating the task. Look for suspicious PowerShell commands, encoded scripts, or unexpected executable paths. Correlate with Sysmon process creation events where available.\n"
+    },
+    {
+      "rule_id": "LL-PERSIST-001",
+      "title": "Windows scheduled task created",
+      "severity": "medium",
+      "computer": "DESKTOP-SHUTGIN",
+      "timestamp": "2026-09-30T21:28:33.793609+00:00",
+      "event_id": 4698,
+      "target_user": null,
+      "attack": [
+        "T1053.005"
+      ],
+      "consumer_text": "A new scheduled task was created on this computer. Scheduled tasks can automatically run programs or scripts. Check whether this task was expected.\n",
+      "false_positive_note": "Windows updates, software installations, maintenance tools, and administrators frequently create legitimate scheduled tasks.\n",
+      "next_steps": [
+        "Identify the name of the newly created task.",
+        "Check which program or script the task executes.",
+        "Confirm that the task was created by an authorized user.",
+        "Investigate unexpected or suspicious tasks."
+      ],
+      "analyst_notes": "Review Security Event ID 4698. Examine TaskName, TaskContent, and the account responsible for creating the task. Look for suspicious PowerShell commands, encoded scripts, or unexpected executable paths. Correlate with Sysmon process creation events where available.\n"
+    },
+    {
+      "rule_id": "LL-PERSIST-001",
+      "title": "Windows scheduled task created",
+      "severity": "medium",
+      "computer": "DESKTOP-SHUTGIN",
+      "timestamp": "2026-10-01T21:51:01.864362+00:00",
+      "event_id": 4698,
+      "target_user": null,
+      "attack": [
+        "T1053.005"
+      ],
+      "consumer_text": "A new scheduled task was created on this computer. Scheduled tasks can automatically run programs or scripts. Check whether this task was expected.\n",
+      "false_positive_note": "Windows updates, software installations, maintenance tools, and administrators frequently create legitimate scheduled tasks.\n",
+      "next_steps": [
+        "Identify the name of the newly created task.",
+        "Check which program or script the task executes.",
+        "Confirm that the task was created by an authorized user.",
+        "Investigate unexpected or suspicious tasks."
+      ],
+      "analyst_notes": "Review Security Event ID 4698. Examine TaskName, TaskContent, and the account responsible for creating the task. Look for suspicious PowerShell commands, encoded scripts, or unexpected executable paths. Correlate with Sysmon process creation events where available.\n"
+    },
+    {
+      "rule_id": "LL-PERSIST-001",
+      "title": "Windows scheduled task created",
+      "severity": "medium",
+      "computer": "DESKTOP-SHUTGIN",
+      "timestamp": "2026-10-01T21:59:10.304442+00:00",
+      "event_id": 4698,
+      "target_user": null,
+      "attack": [
+        "T1053.005"
+      ],
+      "consumer_text": "A new scheduled task was created on this computer. Scheduled tasks can automatically run programs or scripts. Check whether this task was expected.\n",
+      "false_positive_note": "Windows updates, software installations, maintenance tools, and administrators frequently create legitimate scheduled tasks.\n",
+      "next_steps": [
+        "Identify the name of the newly created task.",
+        "Check which program or script the task executes.",
+        "Confirm that the task was created by an authorized user.",
+        "Investigate unexpected or suspicious tasks."
+      ],
+      "analyst_notes": "Review Security Event ID 4698. Examine TaskName, TaskContent, and the account responsible for creating the task. Look for suspicious PowerShell commands, encoded scripts, or unexpected executable paths. Correlate with Sysmon process creation events where available.\n"
+    },
+    {
+      "rule_id": "LL-PERSIST-001",
+      "title": "Windows scheduled task created",
+      "severity": "medium",
+      "computer": "DESKTOP-SHUTGIN",
+      "timestamp": "2026-10-01T21:59:10.562273+00:00",
+      "event_id": 4698,
+      "target_user": null,
+      "attack": [
+        "T1053.005"
+      ],
+      "consumer_text": "A new scheduled task was created on this computer. Scheduled tasks can automatically run programs or scripts. Check whether this task was expected.\n",
+      "false_positive_note": "Windows updates, software installations, maintenance tools, and administrators frequently create legitimate scheduled tasks.\n",
+      "next_steps": [
+        "Identify the name of the newly created task.",
+        "Check which program or script the task executes.",
+        "Confirm that the task was created by an authorized user.",
+        "Investigate unexpected or suspicious tasks."
+      ],
+      "analyst_notes": "Review Security Event ID 4698. Examine TaskName, TaskContent, and the account responsible for creating the task. Look for suspicious PowerShell commands, encoded scripts, or unexpected executable paths. Correlate with Sysmon process creation events where available.\n"
+    },
+    {
+      "rule_id": "LL-PERSIST-001",
+      "title": "Windows scheduled task created",
+      "severity": "medium",
+      "computer": "DESKTOP-SHUTGIN",
+      "timestamp": "2026-10-01T21:59:10.697415+00:00",
+      "event_id": 4698,
+      "target_user": null,
+      "attack": [
+        "T1053.005"
+      ],
+      "consumer_text": "A new scheduled task was created on this computer. Scheduled tasks can automatically run programs or scripts. Check whether this task was expected.\n",
+      "false_positive_note": "Windows updates, software installations, maintenance tools, and administrators frequently create legitimate scheduled tasks.\n",
+      "next_steps": [
+        "Identify the name of the newly created task.",
+        "Check which program or script the task executes.",
+        "Confirm that the task was created by an authorized user.",
+        "Investigate unexpected or suspicious tasks."
+      ],
+      "analyst_notes": "Review Security Event ID 4698. Examine TaskName, TaskContent, and the account responsible for creating the task. Look for suspicious PowerShell commands, encoded scripts, or unexpected executable paths. Correlate with Sysmon process creation events where available.\n"
+    },
+    {
+      "rule_id": "LL-PERSIST-001",
+      "title": "Windows scheduled task created",
+      "severity": "medium",
+      "computer": "DESKTOP-SHUTGIN",
+      "timestamp": "2026-10-02T02:57:59.952584+00:00",
+      "event_id": 4698,
+      "target_user": null,
+      "attack": [
+        "T1053.005"
+      ],
+      "consumer_text": "A new scheduled task was created on this computer. Scheduled tasks can automatically run programs or scripts. Check whether this task was expected.\n",
+      "false_positive_note": "Windows updates, software installations, maintenance tools, and administrators frequently create legitimate scheduled tasks.\n",
+      "next_steps": [
+        "Identify the name of the newly created task.",
+        "Check which program or script the task executes.",
+        "Confirm that the task was created by an authorized user.",
+        "Investigate unexpected or suspicious tasks."
+      ],
+      "analyst_notes": "Review Security Event ID 4698. Examine TaskName, TaskContent, and the account responsible for creating the task. Look for suspicious PowerShell commands, encoded scripts, or unexpected executable paths. Correlate with Sysmon process creation events where available.\n"
+    },
+    {
+      "rule_id": "LL-PERSIST-001",
+      "title": "Windows scheduled task created",
+      "severity": "medium",
+      "computer": "DESKTOP-SHUTGIN",
+      "timestamp": "2026-10-02T04:13:35.676258+00:00",
+      "event_id": 4698,
+      "target_user": null,
+      "attack": [
+        "T1053.005"
+      ],
+      "consumer_text": "A new scheduled task was created on this computer. Scheduled tasks can automatically run programs or scripts. Check whether this task was expected.\n",
+      "false_positive_note": "Windows updates, software installations, maintenance tools, and administrators frequently create legitimate scheduled tasks.\n",
+      "next_steps": [
+        "Identify the name of the newly created task.",
+        "Check which program or script the task executes.",
+        "Confirm that the task was created by an authorized user.",
+        "Investigate unexpected or suspicious tasks."
+      ],
+      "analyst_notes": "Review Security Event ID 4698. Examine TaskName, TaskContent, and the account responsible for creating the task. Look for suspicious PowerShell commands, encoded scripts, or unexpected executable paths. Correlate with Sysmon process creation events where available.\n"
+    }
+  ]
+}

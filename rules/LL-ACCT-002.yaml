@@ -1,0 +1,31 @@
+
+id: LL-ACCT-002
+title: Security group membership changed
+channel: Security
+event_ids: [4728, 4732]
+
+logic:
+  match: {}
+
+severity: medium
+attack: [T1098.007]
+
+consumer_text: >
+  A user or account was added to a Windows security group.
+  This change could provide additional permissions.
+  Check whether the change was authorized.
+
+false_positive_note: >
+  Group membership changes may occur during normal account
+  administration, onboarding, or approved access requests.
+
+next_steps:
+  - Identify which security group was modified.
+  - Verify that the membership change was authorized.
+  - Investigate unexpected additions to privileged groups.
+
+analyst_notes: >
+  Review Security Event IDs 4728 and 4732. Identify the
+  modified group and added member. Determine whether the
+  group grants administrative or other sensitive permissions.
+  Correlate with Event ID 4720 for recently created accounts.

@@ -1,0 +1,7 @@
+{
+  "input_file": "C:\\Users\\progr\\Projects\\loglens-community\\tests\\fixtures\\attack-samples\\sysmon_10_11_lsass_memdump.evtx",
+  "total_events": 4,
+  "rules_loaded": 16,
+  "total_findings": 0,
+  "findings": []
+}

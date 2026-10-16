@@ -1,0 +1,35 @@
+
+id: LL-DEFENSE-003
+title: Windows audit policy changed
+channel: Security
+event_ids: [4719]
+
+logic:
+  match: {}
+
+severity: medium
+attack: [T1562.002]
+
+consumer_text: >
+  The Windows security auditing policy was changed.
+  This may affect which activities are recorded in
+  the computer's security logs.
+
+false_positive_note: >
+  Audit policy changes may occur during authorized
+  administration, Group Policy updates, or security
+  configuration maintenance.
+
+next_steps:
+  - Identify which audit settings were changed.
+  - Verify that the changes were authorized.
+  - Check whether important security auditing remains enabled.
+  - Investigate unexpected changes to logging settings.
+
+analyst_notes: >
+  Review Security Event ID 4719. Examine the account
+  responsible, the affected audit subcategory, and the
+  changes to auditing settings. Determine whether
+  successful or failed event auditing was disabled.
+  Correlate with administrative activity and other
+  defense evasion indicators.
