@@ -11,20 +11,19 @@ severity: medium
 attack: [T1562.002]
 
 consumer_text: >
-  The Windows security auditing policy was changed.
-  This may affect which activities are recorded in
-  the computer's security logs.
+  The settings that control what Windows records
+  in its security logs were changed. This may
+  stop the computer from recording some activity.
 
 false_positive_note: >
-  Audit policy changes may occur during authorized
-  administration, Group Policy updates, or security
-  configuration maintenance.
+  These changes may be normal when an administrator
+  updates the computer or changes its settings.
 
 next_steps:
-  - Identify which audit settings were changed.
-  - Verify that the changes were authorized.
-  - Check whether important security auditing remains enabled.
-  - Investigate unexpected changes to logging settings.
+  - Check which settings were changed.
+  - Ask if someone approved the changes.
+  - Make sure Windows is still recording security events.
+  - Look into any changes that were not approved.
 
 analyst_notes: >
   Review Security Event ID 4719. Examine the account
