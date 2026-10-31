@@ -7,6 +7,8 @@ from html import escape
 from pathlib import Path
 
 import pandas as pd
+import plotly.express as px
+from datetime import timedelta, timezone 
 import streamlit as st
 
 from loglens.ingest import ingest_file
@@ -88,6 +90,11 @@ def analyze_uploaded_files(files):
         "rules_loaded": len(rules),
         "files_uploaded": len(files),
         "findings": json_safe(findings),
+        "events": json_safe([
+            event.model_dump() if hasattr(event, "model_dump")
+            else event
+            for event in all_events
+        ]),
     }
 
 
@@ -121,7 +128,7 @@ def severity_badge(severity):
     )
 
 
-def display_finding(finding, number, expanded=False):
+def display_finding(finding, number, expanded=False, events=None):
     """Display a security finding using five clear sections."""
 
     title = finding_title(finding, number)
@@ -182,23 +189,90 @@ def display_finding(finding, number, expanded=False):
         st.markdown("#### 3. Could this be normal?")
         st.write(false_positive)
 
-        st.markdown("#### 4. What should I do?")
+        st.markdown("#### 4. Investigation Checklist")
+
+        st.caption(
+            "Follow these steps in order. Start with reviewing"
+            "the evidece before making changes to the system."
+        )
 
         if next_steps:
             for step_number, step in enumerate(next_steps, 1):
-                st.write(f"{step_number}. {step}")
+                st.checkbox(
+                    f"{step_number}. {step}",
+                    key=f"checklist_{number}_{step_number}",
+                )
+                
+                
         else:
-            st.write(
+            st.checkbox(
                 "Ask a trusted computer administrator "
-                "to review this activity."
+                "to review this activity.",
+                key=f"checklist_{number}_default",
             )
 
-        st.markdown("#### 5. Technical details")
-        st.write(f"**MITRE ATT&CK:** {attack_text}")
-        st.write(f"**Analyst notes:** {analyst_notes}")
+        if st.session_state.get("learning_mode") == "Analyst Mode":
+            st.markdown("#### 5. Analyst Learning Mode")
 
+            st.write(f"**Detection rule:** {rule_id}")
+            st.write(f"**Severity:** {severity.upper()}")
+            st.write(f"**Windows Event ID:** {event_id}")
+
+            if event_id.isdigit():
+                st.markdown(
+                    f"[Learn about Windows Event ID {event_id}]"
+                    f"(https://www.ultimatewindowssecurity.com/"
+                    f"securitylog/encyclopedia/event.aspx?eventid={event_id})"
+                )
+
+            st.markdown("**MITRE ATT&CK techniques:**")
+            for technique in attack:
+                technique = str(technique)
+                if technique.startswith("T"):
+                    st.markdown(
+                        f"- [{technique}]"
+                        f"(https://attack.mitre.org/techniques/"
+                        f"{technique.replace('.', '/')}/)"
+                    )
+
+            st.write(f"**Analyst notes:** {analyst_notes}")
+
+            st.markdown("**Detection logic:**")
+            st.write(
+                clean_text(
+                    finding.get("detection_logic"),
+                    "Review the matching YAML detection rule "
+                    "for its conditions and thresholds.",
+                )
+            )
+
+            st.markdown("**Process relationships:**")
+            st.write(
+                clean_text(
+                    finding.get("parent_name")
+                    or finding.get("parent_process"),
+                    "No parent process information available "
+                    "for this finding.",
+                )
+            )
+
+        else:
+            st.markdown("#### 5. Learning Notes")
+            st.write(
+                "LogLens explains suspicious Windows activity "
+                "in everyday language. A finding is a reason "
+                "to investigate, not proof of an attack."
+            )
         with st.popover("View original finding data"):
             st.json(finding)
+
+        st.divider()
+
+        display_event_timeline(
+            finding,
+            events or [],
+            number,
+        )
 
 
 def display_priority_card(finding, rank):
@@ -322,11 +396,193 @@ def display_activity_chart(findings):
         "Dates with no findings may not appear."
     )
 
+def display_event_timeline(finding, events, number):
+    """Show events near a security finding."""
 
+    st.markdown("#### Event Timeline")
+
+    minutes = st.slider(
+        "Show events within this many minutes",
+        min_value=1,
+        max_value=60,
+        value=10,
+        key=f"timeline_window_{number}",
+    )
+
+    timestamp = (
+        finding.get("timestamp")
+        or finding.get("first_seen")
+    )
+
+    try:
+        finding_time = datetime.fromisoformat(
+            str(timestamp).replace("Z", "+00:00")
+        )
+        if finding_time.tzinfo is None:
+            finding_time = finding_time.replace(tzinfo=timezone.utc)
+    except (ValueError, TypeError):
+        st.info("No valid timestamp is available for this finding.")
+        return
+
+    rows = []
+
+    for event in events:
+        if not isinstance(event, dict):
+            continue
+
+        event_timestamp = (
+            event.get("timestamp_utc")
+            or event.get("timestamp")
+        )
+
+        try:
+            event_time = datetime.fromisoformat(
+                str(event_timestamp).replace("Z", "+00:00")
+            )
+            if event_time.tzinfo is None:
+                event_time = event_time.replace(tzinfo=timezone.utc)
+        except (ValueError, TypeError):
+            continue
+
+        if abs(event_time - finding_time) > timedelta(minutes=minutes):
+            continue
+
+        # Keep the timeline focused on the finding's computer.
+        if (
+            finding.get("computer")
+            and event.get("computer")
+            and finding["computer"] != event["computer"]
+        ):
+            continue
+
+        rows.append({
+            "Time": event_time,
+            "Event ID": str(event.get("event_id", "Unknown")),
+            "Channel": str(event.get("channel", "Unknown")),
+            "Type": "Related event",
+        })
+
+    rows.append({
+        "Time": finding_time,
+        "Event ID": str(finding.get("event_id", "Finding")),
+        "Channel": "Detection",
+        "Type": "Security finding",
+    })
+
+    df = pd.DataFrame(rows).sort_values("Time")
+
+    fig = px.scatter(
+        df,
+        x="Time",
+        y="Channel",
+        color="Type",
+        hover_data=["Event ID"],
+        color_discrete_map={
+            "Security finding": "#ef4444",
+            "Related event": "#9874f4",
+        },
+        title="Events Around This Finding",
+    )
+
+    fig.update_traces(marker=dict(size=12))
+    fig.update_layout(
+        template="plotly_dark",
+        height=350,
+        margin=dict(l=20, r=20, t=55, b=20),
+        legend_title_text="",
+    )
+
+    st.plotly_chart(
+        fig,
+        use_container_width=True,
+        key=f"timeline_chart_{number}",
+    )
+
+    st.caption(
+        f"Showing {len(rows) - 1} nearby log events "
+        f"within ±{minutes} minutes of this finding. "
+        "The red marker represents the detection."
+    )
 # ==========================================
 # DASHBOARD STYLING
 # ==========================================
+def create_attack_navigator_layer(findings):
+    """Create a MITRE ATT&CK Navigator layer from findings."""
 
+    technique_counts = Counter()
+
+    for finding in findings:
+        if not isinstance(finding, dict):
+            continue
+
+        techniques = finding.get("attack") or []
+
+        if isinstance(techniques, str):
+            techniques = [techniques]
+
+        for technique in techniques:
+            if isinstance(technique, dict):
+                technique = (
+                    technique.get("technique_id")
+                    or technique.get("id")
+                )
+
+            if not technique:
+                continue
+
+            technique = str(technique).strip().upper()
+
+            import re
+            if re.fullmatch(r"T\d{4}(?:\.\d{3})?", technique):
+                technique_counts[technique] += 1
+
+    techniques = [
+        {
+            "techniqueID": technique,
+            "score": count,
+            "comment": f"Detected in {count} LogLens finding(s).",
+            "enabled": True,
+        }
+        for technique, count in sorted(technique_counts.items())
+    ]
+
+    return {
+        "name": "LogLens Community Detection Findings",
+        "versions": {
+            "attack": "18",
+            "navigator": "5.1.0",
+            "layer": "4.5",
+        },
+        "domain": "enterprise-attack",
+        "description": (
+            "MITRE ATT&CK techniques mapped to LogLens "
+            "Community security findings."
+        ),
+        "filters": {
+            "platforms": ["Windows"],
+        },
+        "sorting": 0,
+        "layout": {
+            "layout": "side",
+            "aggregateFunction": "average",
+            "showID": True,
+            "showName": True,
+        },
+        "hideDisabled": False,
+        "techniques": techniques,
+        "gradient": {
+            "colors": ["#ffffff", "#9874f4", "#ef4444"],
+            "minValue": 0,
+            "maxValue": max(technique_counts.values(), default=1),
+        },
+        "legendItems": [],
+        "metadata": [],
+        "links": [],
+        "showTacticRowBackground": False,
+        "tacticRowBackground": "#dddddd",
+        "selectTechniquesAcrossTactics": True,
+        "selectSubtechniquesWithParent": False,
+    }
 st.markdown("""
 <style>
 [data-testid="stMainBlockContainer"] {
@@ -748,7 +1004,23 @@ if results:
 # ==========================================
 # DETECTION FINDINGS AND FILTERS
 # ==========================================
+st.markdown("### Learning Mode")
 
+learning_mode = st.radio(
+    "Choose how you want to explore security findings:",
+    ["Consumer Mode", "Analyst Mode"],
+    horizontal=True,
+    key="learning_mode",
+)
+
+if learning_mode == "Consumer Mode":
+    st.caption(
+        "Beginner-friendly explanations of suspicious activity."
+    )
+else:
+    st.caption(
+        "Technical investigation details for security analysts."
+    )
 st.markdown(
     '<div class="section-label">Detection Findings</div>',
     unsafe_allow_html=True,
@@ -862,6 +1134,7 @@ else:
                 finding,
                 number,
                 expanded=number == 1,
+                events=results.get("events", [])
             )
 
         invalid_findings = [
@@ -894,5 +1167,25 @@ else:
         file_name="loglens_findings.json",
         mime="application/json",
         type="primary",
+    )
+    st.divider()
+
+    st.markdown("### MITRE ATT&CK Navigator Export")
+
+    st.write(
+        "Download a Navigator layer to visualize the "
+        "MITRE ATT&CK techniques identified by LogLens."
+    )
+
+    navigator_layer = create_attack_navigator_layer(
+        valid_findings
+    )
+
+    st.download_button(
+        label="Download ATT&CK Navigator Layer",
+        data=json.dumps(navigator_layer, indent=2),
+        file_name="loglens_attack_navigator.json",
+        mime="application/json",
+        type="secondary",
     )
 

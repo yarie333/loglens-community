@@ -226,3 +226,35 @@ Additional readability testing is also planned to cover detection rules not exer
 ## Project Goal
 
 LogLens Community aims to make Windows security information more accessible by translating technical event logs into understandable findings, explaining potential risks, and helping users decide what to investigate next.
+
+
+
+## Week 5 — Timeline, Learning Mode, and ATT&CK Navigator Export
+
+LogLens Community v0.5 introduces interactive event timelines, two learning modes, investigation checklists, and MITRE ATT&CK Navigator export.
+
+### Interactive Event Timeline
+Each detection finding includes a Plotly timeline showing the finding and nearby Windows events. Users can adjust the time window from 1 to 60 minutes to explore activity surrounding the detection.
+
+### Consumer and Analyst Learning Modes
+- Consumer Mode explains security findings in beginner-friendly language.
+- Analyst Mode provides Windows Event IDs, reference links, MITRE ATT&CK mappings, detection information, and analyst notes where available.
+
+### Investigation Checklists
+All 16 YAML detection rules contain next-step guidance. Finding cards display interactive checkboxes to help users track investigation steps. These checkboxes do not automatically change the system.
+
+### MITRE ATT&CK Navigator Export
+Users can download a JSON layer representing ATT&CK techniques mapped to their detection findings and import it into MITRE ATT&CK Navigator.
+
+Sample layer: `docs/loglens_attack_navigator.json`
+
+### Week 5 Evidence
+Screenshots are stored in `docs/week5-evidence/`:
+- `consumer_mode.png`
+- `Analyst mode.png`
+- `event_timeline.png`
+- `attack_navigator.png`
+
+### Validation
+The existing automated test suite passed with 58 tests. Manual checks confirmed the timeline, learning-mode selector, checklists, and initial Navigator import. Additional feature-specific automated tests are still needed.
+  

@@ -1,0 +1,71 @@
+{
+  "name": "LogLens Community Detection Findings",
+  "versions": {
+    "attack": "18",
+    "navigator": "5.1.0",
+    "layer": "4.5"
+  },
+  "domain": "enterprise-attack",
+  "description": "MITRE ATT&CK techniques mapped to LogLens Community security findings.",
+  "filters": {
+    "platforms": [
+      "Windows"
+    ]
+  },
+  "sorting": 0,
+  "layout": {
+    "layout": "side",
+    "aggregateFunction": "average",
+    "showID": true,
+    "showName": true
+  },
+  "hideDisabled": false,
+  "techniques": [
+    {
+      "techniqueID": "T1053.005",
+      "score": 9,
+      "comment": "Detected in 9 LogLens finding(s).",
+      "enabled": true
+    },
+    {
+      "techniqueID": "T1098.007",
+      "score": 13,
+      "comment": "Detected in 13 LogLens finding(s).",
+      "enabled": true
+    },
+    {
+      "techniqueID": "T1110",
+      "score": 2,
+      "comment": "Detected in 2 LogLens finding(s).",
+      "enabled": true
+    },
+    {
+      "techniqueID": "T1136.001",
+      "score": 4,
+      "comment": "Detected in 4 LogLens finding(s).",
+      "enabled": true
+    },
+    {
+      "techniqueID": "T1562.002",
+      "score": 7,
+      "comment": "Detected in 7 LogLens finding(s).",
+      "enabled": true
+    }
+  ],
+  "gradient": {
+    "colors": [
+      "#ffffff",
+      "#9874f4",
+      "#ef4444"
+    ],
+    "minValue": 0,
+    "maxValue": 13
+  },
+  "legendItems": [],
+  "metadata": [],
+  "links": [],
+  "showTacticRowBackground": false,
+  "tacticRowBackground": "#dddddd",
+  "selectTechniquesAcrossTactics": true,
+  "selectSubtechniquesWithParent": false
+}
