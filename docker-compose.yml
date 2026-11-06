@@ -1,0 +1,12 @@
+
+services:
+  loglens:
+    build: .
+    container_name: loglens-community
+    ports:
+      - "127.0.0.1:8501:8501"
+    environment:
+      STREAMLIT_BROWSER_GATHER_USAGE_STATS: "false"
+    volumes:
+      - ./reports:/app/reports
+    restart: "no"

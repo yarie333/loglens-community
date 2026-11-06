@@ -1,0 +1,6 @@
+
+services:
+  loglens:
+    network_mode: "none"
+    ports: !reset []
+    command: ["python", "-m", "loglens.cli", "--help"]

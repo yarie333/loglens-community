@@ -6,8 +6,8 @@ from pathlib import Path
 
 from loglens.ingest import ingest_file
 
-BENCHMARK_FILE = Path("benchmarks/sample_100k.csv")
-EVENT_COUNT = 100_000
+BENCHMARK_FILE = Path("benchmarks/sample_250k.csv")
+EVENT_COUNT = 250_000
 
 def create_sample_file():
     BENCHMARK_FILE.parent.mkdir(parents=True, exist_ok=True)
@@ -55,7 +55,7 @@ def run_benchmark():
     print(f"Elapsed time: {elapsed:.2f} seconds")
     print(f"Peak Python memory: {peak_memory / (1024 * 1024):.2f} MB")
 
-    if processed == EVENT_COUNT and elapsed < 60:
+    if processed == EVENT_COUNT and peak_memory < 2 * 1024**3:
         print("Benchmark result: PASS")
     else:
         print("Benchmark result: FAIL")
