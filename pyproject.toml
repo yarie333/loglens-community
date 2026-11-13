@@ -9,6 +9,7 @@ description = "Local-first Windows event log normalization and education tool."
 requires-python = ">=3.11"
 dependencies = [
     "pydantic==2.13.5",
+    "plotly>=5.0,<7",
     "pandas==3.0.6",
     "evtx==0.13.1",
     "PyYAML>=6.0,<7.0",
