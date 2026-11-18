@@ -8,6 +8,46 @@ The application processes logs locally using Python and Streamlit.
 
 ## Getting Started
 
+### Quick Start with Docker
+
+LogLens Community can run locally using Docker Desktop.
+
+**Requirements**
+- Docker Desktop installed and running
+- Windows 10/11, macOS, or Linux with Docker support
+
+**Steps**
+
+1. Download the repository from GitHub:
+   https://github.com/yarie333/loglens-community
+
+2. Click **Code → Download ZIP** and extract the files.
+
+3. Open PowerShell or a terminal inside the extracted project folder.
+
+4. Build and start LogLens:
+
+   ```powershell
+   docker compose up --build
+   ```
+
+5. Open the application in your browser:
+
+   http://localhost:8501
+
+6. Upload a Windows EVTX, CSV, or JSON log file to analyze it.
+
+**Stop the application**
+
+Press `Ctrl + C` in the terminal running Docker Compose.
+
+**Privacy**
+
+LogLens processes logs locally. See
+[Privacy Documentation](docs/privacy.md) for details.
+
+---
+
 ### Installation
 
 Clone the repository and navigate to the project directory.
