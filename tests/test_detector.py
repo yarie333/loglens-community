@@ -16,7 +16,7 @@ from loglens.engine.detector import (
     analyze_events,
 )
 
-import re
+
 
 def make_failed_logon(minute):
     return NormalizedEvent(
